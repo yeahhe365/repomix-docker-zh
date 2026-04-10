@@ -1,0 +1,20 @@
+# Run the packaged website and API using production-style Docker images
+# $ docker compose -f website/compose.docker.yml up --build
+
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      target: prebuilt
+    ports:
+      - "5173:80"
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
