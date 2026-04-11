@@ -1,4 +1,14 @@
 <div align="center" markdown="1">
+   <h1>repomix-local-webui</h1>
+   <p><strong>A local-first Repomix Web UI fork for Docker deployment and Simplified Chinese workflows.</strong></p>
+   <p>
+      <a href="https://github.com/yeahhe365/repomix-local-webui">GitHub Repository</a>
+      ·
+      <a href="https://github.com/yamadashy/repomix">Upstream Repomix</a>
+   </p>
+   <p>
+      This fork focuses on local deployment, local-path browsing, persistent Web UI state, and a Simplified Chinese default experience.
+   </p>
    <sup>Special thanks to:</sup>
    <br>
    <br>
@@ -36,6 +46,23 @@
 </p>
 
 <hr />
+
+## Fork Highlights
+
+- Local-first Web UI deployment with Docker
+- Simplified Chinese as the default entry experience
+- Local absolute-path packing mode for trusted local deployments
+- Built-in local directory browser for selecting folders from the Web UI
+- Persistent page state that restores the last mode, path, options, and browser position
+
+## This Fork vs Upstream
+
+This repository is a maintained fork of [yamadashy/repomix](https://github.com/yamadashy/repomix).
+
+- Upstream remains the source for the core Repomix CLI and official hosted website
+- This fork adds local deployment and local-path workflow enhancements on top of the upstream project
+- If you want the original project, use [yamadashy/repomix](https://github.com/yamadashy/repomix)
+- If you want the local Web UI variant, use [yeahhe365/repomix-local-webui](https://github.com/yeahhe365/repomix-local-webui)
 
 [![npm](https://img.shields.io/npm/v/repomix.svg?maxAge=1000)](https://www.npmjs.com/package/repomix)
 [![npm](https://img.shields.io/npm/d18m/repomix)](https://www.npmjs.com/package/repomix)
