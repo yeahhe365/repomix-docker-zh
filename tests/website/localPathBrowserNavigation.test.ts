@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildLocalPathBreadcrumbs,
+  filterLocalPathEntries,
   moveLocalPathSelection,
+  pushRecentLocalPath,
 } from '../../website/client/components/Home/localPathBrowserNavigation.js';
 
 describe('localPathBrowserNavigation', () => {
@@ -29,5 +31,36 @@ describe('localPathBrowserNavigation', () => {
 
   it('keeps selection empty when there are no entries', () => {
     expect(moveLocalPathSelection(-1, 0, 'next')).toBe(-1);
+  });
+
+  it('filters directory entries by a case-insensitive query', () => {
+    expect(
+      filterLocalPathEntries(
+        [
+          { name: 'Desktop', path: '/Users/jones/Desktop' },
+          { name: 'Documents', path: '/Users/jones/Documents' },
+          { name: 'Downloads', path: '/Users/jones/Downloads' },
+        ],
+        'doc',
+      ),
+    ).toEqual([{ name: 'Documents', path: '/Users/jones/Documents' }]);
+  });
+
+  it('keeps a bounded MRU list for recent directories', () => {
+    expect(
+      pushRecentLocalPath(
+        ['/Users/jones/Desktop', '/Users/jones/Documents'],
+        '/Users/jones/Downloads',
+        3,
+      ),
+    ).toEqual(['/Users/jones/Downloads', '/Users/jones/Desktop', '/Users/jones/Documents']);
+
+    expect(
+      pushRecentLocalPath(
+        ['/Users/jones/Desktop', '/Users/jones/Documents', '/Users/jones/Downloads'],
+        '/Users/jones/Desktop',
+        3,
+      ),
+    ).toEqual(['/Users/jones/Desktop', '/Users/jones/Documents', '/Users/jones/Downloads']);
   });
 });

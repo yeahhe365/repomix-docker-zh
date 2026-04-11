@@ -12,6 +12,8 @@ describe('homeUiText', () => {
     expect(text.upload.browseLocalPath).toBe('浏览');
     expect(text.upload.localPathBrowserSelectCurrent).toBe('选择当前文件夹');
     expect(text.upload.localPathBrowserKeyboardHint).toBe('方向键选择，回车进入，退格返回，Esc 关闭');
+    expect(text.upload.localPathBrowserSearchPlaceholder).toBe('搜索当前目录中的文件夹');
+    expect(text.upload.localPathBrowserRecentTitle).toBe('最近访问');
   });
 
   it('returns English UI copy for en-US', () => {
@@ -24,5 +26,7 @@ describe('homeUiText', () => {
     expect(text.upload.browseLocalPath).toBe('Browse');
     expect(text.upload.localPathBrowserSelectCurrent).toBe('Select current folder');
     expect(text.upload.localPathBrowserKeyboardHint).toBe('Use arrow keys to move, Enter to open, Backspace to go up, Esc to close');
+    expect(text.upload.localPathBrowserSearchPlaceholder).toBe('Search folders in the current directory');
+    expect(text.upload.localPathBrowserRecentTitle).toBe('Recent');
   });
 });

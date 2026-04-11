@@ -8,7 +8,12 @@ import {
   saveLocalPathBrowserState,
   type LocalPathBrowserState,
 } from '../../utils/tryItPersistence';
-import { buildLocalPathBreadcrumbs, moveLocalPathSelection } from './localPathBrowserNavigation';
+import {
+  buildLocalPathBreadcrumbs,
+  filterLocalPathEntries,
+  moveLocalPathSelection,
+  pushRecentLocalPath,
+} from './localPathBrowserNavigation';
 import { useHomeUiText } from './useHomeUiText';
 
 const props = defineProps<{
@@ -28,18 +33,20 @@ const selectedIndex = ref(-1);
 const dialogRef = ref<HTMLDivElement | null>(null);
 const listRef = ref<HTMLUListElement | null>(null);
 const browserState = ref<LocalPathBrowserState>(createDefaultLocalPathBrowserState());
+const searchQuery = ref('');
 
 const currentLabel = computed(() => {
   return listing.value?.currentPath ?? uiText.value.upload.localPathBrowserRoots;
 });
 
 const breadcrumbs = computed(() => buildLocalPathBreadcrumbs(listing.value?.currentPath ?? null));
+const visibleEntries = computed(() => filterLocalPathEntries(listing.value?.entries ?? [], searchQuery.value));
 const selectedEntry = computed(() => {
-  if (!listing.value || selectedIndex.value < 0) {
+  if (selectedIndex.value < 0) {
     return null;
   }
 
-  return listing.value.entries[selectedIndex.value] ?? null;
+  return visibleEntries.value[selectedIndex.value] ?? null;
 });
 
 watch(
@@ -47,6 +54,7 @@ watch(
   async (isOpen) => {
     if (isOpen) {
       browserState.value = loadLocalPathBrowserState();
+      searchQuery.value = '';
       await loadDirectory(browserState.value.currentPath ?? undefined);
       dialogRef.value?.focus();
     } else if (listRef.value) {
@@ -58,16 +66,17 @@ watch(
 );
 
 watch(
-  () => listing.value?.entries,
-  (entries) => {
-    if (!entries?.length) {
+  [() => listing.value?.entries, searchQuery],
+  () => {
+    const activeEntries = visibleEntries.value;
+    if (!activeEntries.length) {
       selectedIndex.value = -1;
       persistBrowserState({ selectedPath: null });
       return;
     }
 
     const restoredIndex = browserState.value.selectedPath
-      ? entries.findIndex((entry) => entry.path === browserState.value.selectedPath)
+      ? activeEntries.findIndex((entry) => entry.path === browserState.value.selectedPath)
       : -1;
 
     if (restoredIndex >= 0) {
@@ -80,9 +89,9 @@ watch(
 );
 
 watch(selectedIndex, (index) => {
-  if (index >= 0 && listing.value?.entries[index]) {
+  if (index >= 0 && visibleEntries.value[index]) {
     persistBrowserState({
-      selectedPath: listing.value.entries[index].path,
+      selectedPath: visibleEntries.value[index].path,
     });
   }
 });
@@ -126,6 +135,9 @@ function selectEntry(index: number) {
 
 async function enterDirectory(targetPath: string) {
   await loadDirectory(targetPath);
+  persistBrowserState({
+    recentPaths: pushRecentLocalPath(browserState.value.recentPaths, targetPath),
+  });
 }
 
 async function enterSelectedDirectory() {
@@ -154,6 +166,9 @@ function selectCurrentPath() {
     return;
   }
 
+  persistBrowserState({
+    recentPaths: pushRecentLocalPath(browserState.value.recentPaths, listing.value.currentPath),
+  });
   emit('select', listing.value.currentPath);
   closeBrowser();
 }
@@ -163,6 +178,14 @@ async function retry() {
 }
 
 async function jumpToBreadcrumb(path: string) {
+  await loadDirectory(path);
+}
+
+async function openRecentPath(path: string) {
+  searchQuery.value = '';
+  persistBrowserState({
+    recentPaths: pushRecentLocalPath(browserState.value.recentPaths, path),
+  });
   await loadDirectory(path);
 }
 
@@ -180,11 +203,11 @@ async function handleKeydown(event: KeyboardEvent) {
   switch (event.key) {
     case 'ArrowDown':
       event.preventDefault();
-      selectedIndex.value = moveLocalPathSelection(selectedIndex.value, listing.value?.entries.length ?? 0, 'next');
+      selectedIndex.value = moveLocalPathSelection(selectedIndex.value, visibleEntries.value.length, 'next');
       break;
     case 'ArrowUp':
       event.preventDefault();
-      selectedIndex.value = moveLocalPathSelection(selectedIndex.value, listing.value?.entries.length ?? 0, 'previous');
+      selectedIndex.value = moveLocalPathSelection(selectedIndex.value, visibleEntries.value.length, 'previous');
       break;
     case 'Enter':
       event.preventDefault();
@@ -262,6 +285,30 @@ function handleListScroll() {
           </button>
         </div>
 
+        <div class="browser-search">
+          <input
+            v-model="searchQuery"
+            type="text"
+            class="search-input"
+            :placeholder="uiText.upload.localPathBrowserSearchPlaceholder"
+          />
+        </div>
+
+        <div v-if="browserState.recentPaths.length" class="recent-section">
+          <p class="recent-title">{{ uiText.upload.localPathBrowserRecentTitle }}</p>
+          <div class="recent-list">
+            <button
+              v-for="recentPath in browserState.recentPaths"
+              :key="recentPath"
+              type="button"
+              class="recent-chip"
+              @click="openRecentPath(recentPath)"
+            >
+              {{ recentPath }}
+            </button>
+          </div>
+        </div>
+
         <div v-if="loading" class="browser-state">
           <LoaderCircle :size="18" class="spin" />
           <span>{{ uiText.upload.localPathBrowserLoading }}</span>
@@ -279,7 +326,7 @@ function handleListScroll() {
           <li v-if="!listing?.entries.length" class="empty-state">
             {{ uiText.upload.localPathBrowserEmpty }}
           </li>
-          <li v-for="(entry, index) in listing?.entries" :key="entry.path">
+          <li v-for="(entry, index) in visibleEntries" :key="entry.path">
             <button
               type="button"
               class="directory-button"
@@ -382,6 +429,58 @@ function handleListScroll() {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.browser-search {
+  display: flex;
+}
+
+.search-input {
+  width: 100%;
+  height: 42px;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 10px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  padding: 0 14px;
+  font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--vp-c-brand-1);
+}
+
+.recent-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recent-title {
+  margin: 0;
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+}
+
+.recent-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.recent-chip {
+  max-width: 100%;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 999px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .primary-button,

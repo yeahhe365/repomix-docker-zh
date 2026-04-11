@@ -19,6 +19,7 @@ export interface LocalPathBrowserState {
   currentPath: string | null;
   selectedPath: string | null;
   scrollTop: number;
+  recentPaths: string[];
 }
 
 const TRY_IT_PAGE_STATE_KEY = 'repomix-tryit-page-state-v1';
@@ -49,6 +50,7 @@ export function createDefaultLocalPathBrowserState(): LocalPathBrowserState {
     currentPath: null,
     selectedPath: null,
     scrollTop: 0,
+    recentPaths: [],
   };
 }
 
@@ -172,6 +174,9 @@ export function loadLocalPathBrowserState(storage?: StorageLike): LocalPathBrows
       currentPath: typeof parsed.currentPath === 'string' ? parsed.currentPath : null,
       selectedPath: typeof parsed.selectedPath === 'string' ? parsed.selectedPath : null,
       scrollTop: typeof parsed.scrollTop === 'number' ? parsed.scrollTop : 0,
+      recentPaths: Array.isArray(parsed.recentPaths)
+        ? parsed.recentPaths.filter((value): value is string => typeof value === 'string')
+        : [],
     };
   } catch {
     return createDefaultLocalPathBrowserState();

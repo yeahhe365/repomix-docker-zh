@@ -71,6 +71,8 @@ export interface HomeUiText {
     localPathBrowserSelectCurrent: string;
     localPathBrowserRetry: string;
     localPathBrowserKeyboardHint: string;
+    localPathBrowserSearchPlaceholder: string;
+    localPathBrowserRecentTitle: string;
     fileSelectionWarning: (threshold: number) => string;
   };
   fileSelection: {
@@ -230,6 +232,8 @@ const enText: HomeUiText = {
     localPathBrowserSelectCurrent: 'Select current folder',
     localPathBrowserRetry: 'Retry',
     localPathBrowserKeyboardHint: 'Use arrow keys to move, Enter to open, Backspace to go up, Esc to close',
+    localPathBrowserSearchPlaceholder: 'Search folders in the current directory',
+    localPathBrowserRecentTitle: 'Recent',
     fileSelectionWarning: (threshold) =>
       `Selecting more than ${threshold} files may cause processing issues or timeouts. Consider reducing your selection for better performance.`,
   },
@@ -396,6 +400,8 @@ const zhText: HomeUiText = {
     localPathBrowserSelectCurrent: '选择当前文件夹',
     localPathBrowserRetry: '重试',
     localPathBrowserKeyboardHint: '方向键选择，回车进入，退格返回，Esc 关闭',
+    localPathBrowserSearchPlaceholder: '搜索当前目录中的文件夹',
+    localPathBrowserRecentTitle: '最近访问',
     fileSelectionWarning: (threshold) =>
       `选择超过 ${threshold} 个文件可能导致处理问题或超时。建议减少选择范围以获得更好的性能。`,
   },

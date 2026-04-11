@@ -92,6 +92,7 @@ describe('tryItPersistence', () => {
         currentPath: '/Users/jones/Desktop',
         selectedPath: '/Users/jones/Desktop/superpowers',
         scrollTop: 128,
+        recentPaths: ['/Users/jones/Desktop/superpowers'],
       },
       storage,
     );
@@ -100,6 +101,7 @@ describe('tryItPersistence', () => {
       currentPath: '/Users/jones/Desktop',
       selectedPath: '/Users/jones/Desktop/superpowers',
       scrollTop: 128,
+      recentPaths: ['/Users/jones/Desktop/superpowers'],
     });
 
     clearLocalPathBrowserState(storage);
