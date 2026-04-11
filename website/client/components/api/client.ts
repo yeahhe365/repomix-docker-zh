@@ -102,6 +102,27 @@ interface StreamErrorEvent {
 
 type StreamEvent = ProgressEvent | ResultEvent | StreamErrorEvent;
 
+async function extractErrorMessage(response: Response): Promise<string> {
+  const contentType = response.headers.get('content-type') ?? '';
+
+  if (contentType.includes('application/json')) {
+    const data = await response.json();
+    return (data as ErrorResponse).error;
+  }
+
+  const fallback = response.statusText
+    ? `${response.status} ${response.statusText}`
+    : `Request failed with status ${response.status}`;
+
+  try {
+    const text = await response.text();
+    const compactText = text.replace(/\s+/g, ' ').trim();
+    return compactText ? `${fallback}\n${compactText}` : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 export async function browseLocalPathDirectories(selectedPath?: string): Promise<LocalPathDirectoryListing> {
   const endpoint = new URL(`${API_BASE_URL}/api/local-path/directories`);
   if (selectedPath?.trim()) {
@@ -111,8 +132,7 @@ export async function browseLocalPathDirectories(selectedPath?: string): Promise
   const response = await fetch(endpoint.toString());
 
   if (!response.ok) {
-    const data = await response.json();
-    throw new ApiError((data as ErrorResponse).error);
+    throw new ApiError(await extractErrorMessage(response));
   }
 
   return (await response.json()) as LocalPathDirectoryListing;
@@ -139,8 +159,7 @@ export async function packRepository(request: PackRequest, callbacks?: PackStrea
 
   // Handle non-streaming error responses (validation errors return JSON)
   if (!response.ok) {
-    const data = await response.json();
-    throw new ApiError((data as ErrorResponse).error);
+    throw new ApiError(await extractErrorMessage(response));
   }
 
   // Handle NDJSON stream

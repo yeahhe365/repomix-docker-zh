@@ -11,4 +11,10 @@ describe('compose.docker.yml', () => {
     expect(compose).toMatch(/target:\s*prebuilt/);
     expect(compose).not.toMatch(/target:\s*production/);
   });
+
+  it('restarts the local API container automatically after failures', () => {
+    const compose = readFileSync(composePath, 'utf8');
+
+    expect(compose).toMatch(/server:\n(?:.*\n)*?\s+restart:\s+unless-stopped/);
+  });
 });

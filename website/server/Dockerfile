@@ -47,6 +47,7 @@ COPY --from=builder /app/warmup.mjs ./warmup.mjs
 # NODE_COMPILE_CACHE enables V8 compile cache to reduce cold start latency
 ENV NODE_ENV=production \
     PORT=8080 \
+    NODE_OPTIONS=--max-old-space-size=1024 \
     REPOMIX_WORKER_PATH=/app/dist-bundled/worker.mjs \
     REPOMIX_WASM_DIR=/app/dist-bundled/wasm \
     NODE_COMPILE_CACHE=/app/.compile-cache

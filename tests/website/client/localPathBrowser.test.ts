@@ -55,4 +55,22 @@ describe('browseLocalPathDirectories', () => {
 
     await expect(browseLocalPathDirectories()).rejects.toBeInstanceOf(ApiError);
   });
+
+  it('surfaces a readable error when the server returns an HTML error page', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(
+      new Response('<html><h1>502 Bad Gateway</h1></html>', {
+        status: 502,
+        statusText: 'Bad Gateway',
+        headers: {
+          'Content-Type': 'text/html',
+        },
+      }),
+    );
+
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(browseLocalPathDirectories()).rejects.toMatchObject({
+      message: expect.stringContaining('502'),
+    });
+  });
 });
