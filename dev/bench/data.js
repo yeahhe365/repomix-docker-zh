@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775817532714,
+  "lastUpdate": 1775883133046,
   "repoUrl": "https://github.com/yeahhe365/repomix-docker-zh",
   "entries": {
     "Repomix Performance": [
@@ -88,6 +88,51 @@ window.BENCHMARK_DATA = {
             "range": "±79",
             "unit": "ms",
             "extra": "Median of 20 runs\nQ1: 2394ms, Q3: 2473ms\nAll times: 2362, 2376, 2392, 2392, 2394, 2394, 2394, 2402, 2404, 2424, 2426, 2434, 2436, 2457, 2462, 2473, 2491, 2501, 2507, 2542ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "64304674+yeahhe365@users.noreply.github.com",
+            "name": "从何开始123",
+            "username": "yeahhe365"
+          },
+          "committer": {
+            "email": "64304674+yeahhe365@users.noreply.github.com",
+            "name": "从何开始123",
+            "username": "yeahhe365"
+          },
+          "distinct": true,
+          "id": "f732cd0d296f44ab7d3505a292f2739f337c4a06",
+          "message": "feat(website): add persistent local path browser",
+          "timestamp": "2026-04-11T12:49:42+08:00",
+          "tree_id": "e50f3a21007fd410e27770a8d7b7fd5e4c944cf9",
+          "url": "https://github.com/yeahhe365/repomix-docker-zh/commit/f732cd0d296f44ab7d3505a292f2739f337c4a06"
+        },
+        "date": 1775883132244,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Repomix Pack (macOS)",
+            "value": 1750,
+            "range": "±166",
+            "unit": "ms",
+            "extra": "Median of 30 runs\nQ1: 1707ms, Q3: 1873ms\nAll times: 1510, 1520, 1607, 1617, 1624, 1659, 1706, 1707, 1714, 1721, 1721, 1723, 1735, 1736, 1744, 1750, 1785, 1788, 1806, 1819, 1864, 1870, 1873, 1879, 1912, 1931, 2068, 2134, 2186, 2213ms"
+          },
+          {
+            "name": "Repomix Pack (Linux)",
+            "value": 1930,
+            "range": "±48",
+            "unit": "ms",
+            "extra": "Median of 20 runs\nQ1: 1910ms, Q3: 1958ms\nAll times: 1877, 1885, 1891, 1899, 1902, 1910, 1916, 1923, 1924, 1926, 1930, 1931, 1933, 1937, 1951, 1958, 1964, 1969, 1979, 2009ms"
+          },
+          {
+            "name": "Repomix Pack (Windows)",
+            "value": 2324,
+            "range": "±36",
+            "unit": "ms",
+            "extra": "Median of 20 runs\nQ1: 2306ms, Q3: 2342ms\nAll times: 2281, 2289, 2292, 2294, 2296, 2306, 2315, 2315, 2318, 2324, 2324, 2326, 2332, 2333, 2340, 2342, 2342, 2346, 2351, 2359ms"
           }
         ]
       }
