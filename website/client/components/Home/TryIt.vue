@@ -35,7 +35,7 @@
           />
           <TryItLocalPathInput
             v-else-if="mode === 'localPath'"
-            v-model:path="inputUrl"
+            v-model:path="inputLocalPath"
             :loading="loading"
             @keydown="handleKeydown"
             @submit="handleSubmit"
@@ -109,10 +109,11 @@
 
 <script setup lang="ts">
 import { FolderArchive, FolderOpen, Link2, RotateCcw } from 'lucide-vue-next';
-import { computed, nextTick, onMounted, ref, watch } from 'vue';
+import { computed, nextTick, onMounted, watch } from 'vue';
 import { usePackRequest } from '../../composables/usePackRequest';
 import { isBot } from '../../utils/botDetect';
 import { hasNonDefaultValues, parseUrlParameters, updateUrlParameters } from '../../utils/urlParams';
+import { clearLocalPathBrowserState, clearTryItPageState } from '../../utils/tryItPersistence';
 import type { FileInfo } from '../api/client';
 import { isValidRemoteValue } from '../utils/validation';
 import PackButton from './PackButton.vue';
@@ -131,6 +132,7 @@ const {
 
   // Input states
   inputUrl,
+  inputLocalPath,
   inputRepositoryUrl,
   mode,
   uploadedFile,
@@ -159,12 +161,15 @@ const uiText = useHomeUiText();
 
 // Check if reset button should be shown
 const shouldShowReset = computed(() => {
-  // Use utility function to check for non-default values
   return hasNonDefaultValues(
-    inputUrl.value,
+    '',
     packOptions as unknown as Record<string, unknown>,
     DEFAULT_PACK_OPTIONS as unknown as Record<string, unknown>,
-  );
+  )
+    || mode.value !== 'url'
+    || Boolean(inputUrl.value.trim())
+    || Boolean(inputLocalPath.value.trim())
+    || Boolean(uploadedFile.value);
 });
 
 // Function to update URL parameters based on current state
@@ -224,6 +229,11 @@ function handleKeydown(event: KeyboardEvent) {
 function handleReset() {
   resetOptions();
   inputUrl.value = '';
+  inputLocalPath.value = '';
+  uploadedFile.value = null;
+  mode.value = 'url';
+  clearTryItPageState();
+  clearLocalPathBrowserState();
 
   // Clear URL parameters
   updateUrlParameters({});

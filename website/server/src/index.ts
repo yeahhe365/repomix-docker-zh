@@ -3,6 +3,7 @@ import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
 import { compress } from 'hono/compress';
 import { timeout } from 'hono/timeout';
+import { localPathBrowseAction } from './actions/localPathBrowseAction.js';
 import { packAction } from './actions/packAction.js';
 import { bodyLimitMiddleware } from './middlewares/bodyLimit.js';
 import { botGuardMiddleware } from './middlewares/botGuard.js';
@@ -62,6 +63,7 @@ if (!isWarmupMode()) {
   app.get('/health', (c) => c.text('OK'));
 
   // Main packing endpoint
+  app.get('/api/local-path/directories', localPathBrowseAction);
   app.post('/api/pack', bodyLimitMiddleware, packAction);
 
   // Start server

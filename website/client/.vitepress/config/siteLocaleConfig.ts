@@ -85,9 +85,9 @@ function remapSidebar(sidebar: Sidebar | undefined, remap: (value: string) => st
   return Object.fromEntries(
     Object.entries(sidebar).map(([sectionPath, groups]) => [
       remap(sectionPath),
-      groups.map((group) => ({
+      groups.map((group: (typeof groups)[number]) => ({
         ...group,
-        items: group.items.map((item) => ({
+        items: group.items.map((item: (typeof group.items)[number]) => ({
           ...item,
           link: remap(item.link),
         })),

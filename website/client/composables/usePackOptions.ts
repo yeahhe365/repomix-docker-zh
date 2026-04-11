@@ -13,7 +13,7 @@ export interface PackOptions {
   compress: boolean;
 }
 
-const DEFAULT_PACK_OPTIONS: PackOptions = {
+export const DEFAULT_PACK_OPTIONS: PackOptions = {
   format: 'xml',
   removeComments: false,
   removeEmptyLines: false,

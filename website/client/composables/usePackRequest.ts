@@ -1,9 +1,10 @@
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import type { FileInfo, PackProgressStage, PackResult } from '../components/api/client';
 import { handlePackRequest } from '../components/utils/requestHandlers';
 import { isValidAbsolutePath } from '../components/Home/localPathInput';
 import { isValidRemoteValue } from '../components/utils/validation';
 import { parseUrlParameters } from '../utils/urlParams';
+import { loadTryItPageState, resolveInitialTryItPageState, saveTryItPageState } from '../utils/tryItPersistence';
 import { useHomeUiText } from '../components/Home/useHomeUiText';
 import { usePackOptions } from './usePackOptions';
 
@@ -12,11 +13,11 @@ export type InputMode = 'url' | 'file' | 'localPath';
 export function usePackRequest() {
   const uiText = useHomeUiText();
   const packOptionsComposable = usePackOptions();
-  const { packOptions, getPackRequestOptions, resetOptions, applyUrlParameters, DEFAULT_PACK_OPTIONS } =
-    packOptionsComposable;
+  const { packOptions, getPackRequestOptions, resetOptions, DEFAULT_PACK_OPTIONS } = packOptionsComposable;
 
   // Input states
   const inputUrl = ref('');
+  const inputLocalPath = ref('');
   const inputRepositoryUrl = ref('');
   const mode = ref<InputMode>('url');
   const uploadedFile = ref<File | null>(null);
@@ -40,7 +41,7 @@ export function usePackRequest() {
       case 'url':
         return !!inputUrl.value && isValidRemoteValue(inputUrl.value.trim());
       case 'localPath':
-        return !!inputUrl.value && isValidAbsolutePath(inputUrl.value.trim());
+        return !!inputLocalPath.value && isValidAbsolutePath(inputLocalPath.value.trim());
       case 'file':
         return !!uploadedFile.value;
       default:
@@ -79,7 +80,7 @@ export function usePackRequest() {
     hasExecuted.value = true;
     progressStage.value = null;
     progressMessage.value = null;
-    inputRepositoryUrl.value = inputUrl.value;
+    inputRepositoryUrl.value = mode.value === 'localPath' ? inputLocalPath.value : inputUrl.value;
 
     // Set up automatic timeout
     // Use .bind() to avoid capturing the surrounding scope in the closure
@@ -107,7 +108,7 @@ export function usePackRequest() {
           },
           signal: requestController.signal,
           file: mode.value === 'file' ? uploadedFile.value || undefined : undefined,
-          localPath: mode.value === 'localPath' ? inputUrl.value : undefined,
+          localPath: mode.value === 'localPath' ? inputLocalPath.value : undefined,
           messages: {
             requestTimedOut: uiText.value.errors.requestTimedOut,
             requestCancelled: uiText.value.errors.requestCancelled,
@@ -168,15 +169,31 @@ export function usePackRequest() {
   // Accessing them before mounting would cause errors in SSR environments.
   onMounted(() => {
     const urlParams = parseUrlParameters();
+    const persistedState = loadTryItPageState(DEFAULT_PACK_OPTIONS);
+    const initialState = resolveInitialTryItPageState({
+      defaultOptions: DEFAULT_PACK_OPTIONS,
+      persistedState,
+      urlParams,
+    });
 
-    // Apply pack options from URL parameters
-    applyUrlParameters(urlParams);
-
-    // Apply repo URL from URL parameters
-    if (urlParams.repo) {
-      inputUrl.value = urlParams.repo;
-    }
+    mode.value = initialState.mode;
+    inputUrl.value = initialState.remoteUrl;
+    inputLocalPath.value = initialState.localPath;
+    Object.assign(packOptions, initialState.packOptions);
   });
+
+  watch(
+    [mode, inputUrl, inputLocalPath, packOptions],
+    () => {
+      saveTryItPageState({
+        mode: mode.value,
+        remoteUrl: inputUrl.value,
+        localPath: inputLocalPath.value,
+        packOptions: { ...packOptions },
+      });
+    },
+    { deep: true },
+  );
 
   return {
     // Pack options (re-exported for convenience)
@@ -184,6 +201,7 @@ export function usePackRequest() {
 
     // Input states
     inputUrl,
+    inputLocalPath,
     inputRepositoryUrl,
     mode,
     uploadedFile,

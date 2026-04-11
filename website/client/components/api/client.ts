@@ -18,6 +18,17 @@ export interface FileInfo {
   selected?: boolean;
 }
 
+export interface LocalPathDirectoryEntry {
+  name: string;
+  path: string;
+}
+
+export interface LocalPathDirectoryListing {
+  currentPath: string | null;
+  parentPath: string | null;
+  entries: LocalPathDirectoryEntry[];
+}
+
 export interface PackRequest {
   url?: string;
   localPath?: string;
@@ -90,6 +101,22 @@ interface StreamErrorEvent {
 }
 
 type StreamEvent = ProgressEvent | ResultEvent | StreamErrorEvent;
+
+export async function browseLocalPathDirectories(selectedPath?: string): Promise<LocalPathDirectoryListing> {
+  const endpoint = new URL(`${API_BASE_URL}/api/local-path/directories`);
+  if (selectedPath?.trim()) {
+    endpoint.searchParams.set('path', selectedPath.trim());
+  }
+
+  const response = await fetch(endpoint.toString());
+
+  if (!response.ok) {
+    const data = await response.json();
+    throw new ApiError((data as ErrorResponse).error);
+  }
+
+  return (await response.json()) as LocalPathDirectoryListing;
+}
 
 export async function packRepository(request: PackRequest, callbacks?: PackStreamCallbacks): Promise<PackResult> {
   const formData = new FormData();

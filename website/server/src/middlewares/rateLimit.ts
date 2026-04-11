@@ -8,8 +8,17 @@ import { logWarning } from '../utils/logger.js';
 let lastDailyRateLimitErrorLogAt = 0;
 const ERROR_LOG_INTERVAL_MS = 60_000;
 
+export function shouldBypassRateLimit(method: string, path: string): boolean {
+  return method.toUpperCase() === 'GET' && path === '/api/local-path/directories';
+}
+
 export function rateLimitMiddleware() {
   return async function rateLimitMiddleware(c: Context, next: Next) {
+    if (shouldBypassRateLimit(c.req.method, c.req.path)) {
+      await next();
+      return;
+    }
+
     const clientInfo = getClientInfo(c);
     const requestId = c.get('requestId');
 

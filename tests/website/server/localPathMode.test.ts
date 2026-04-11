@@ -2,7 +2,11 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import { processLocalPath, validateAndResolveLocalPath } from '../../../website/server/src/domains/pack/localPath.js';
+import {
+  listLocalPathDirectories,
+  processLocalPath,
+  validateAndResolveLocalPath,
+} from '../../../website/server/src/domains/pack/localPath.js';
 
 describe('localPath mode', () => {
   const originalEnable = process.env.ENABLE_LOCAL_PATH_MODE;
@@ -49,5 +53,53 @@ describe('localPath mode', () => {
     expect(result.content).toContain('hello = "world"');
 
     await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  it('lists allowlist roots when browsing starts without a selected path', async () => {
+    process.env.ENABLE_LOCAL_PATH_MODE = 'true';
+
+    const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'repomix-local-root-'));
+    process.env.LOCAL_PATH_ALLOWLIST = tempRoot;
+
+    const listing = await listLocalPathDirectories();
+
+    expect(listing.currentPath).toBeNull();
+    expect(listing.parentPath).toBeNull();
+    expect(listing.entries).toEqual([
+      {
+        name: tempRoot,
+        path: tempRoot,
+      },
+    ]);
+
+    await fs.rm(tempRoot, { recursive: true, force: true });
+  });
+
+  it('lists only child directories for an allowlisted path', async () => {
+    process.env.ENABLE_LOCAL_PATH_MODE = 'true';
+
+    const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'repomix-local-browse-'));
+    const projectDir = path.join(tempRoot, 'project');
+    await fs.mkdir(path.join(projectDir, 'src'), { recursive: true });
+    await fs.mkdir(path.join(projectDir, 'docs'), { recursive: true });
+    await fs.writeFile(path.join(projectDir, 'README.md'), '# hello\n');
+    process.env.LOCAL_PATH_ALLOWLIST = tempRoot;
+
+    const listing = await listLocalPathDirectories(projectDir);
+
+    expect(listing.currentPath).toBe(projectDir);
+    expect(listing.parentPath).toBe(tempRoot);
+    expect(listing.entries).toEqual([
+      {
+        name: 'docs',
+        path: path.join(projectDir, 'docs'),
+      },
+      {
+        name: 'src',
+        path: path.join(projectDir, 'src'),
+      },
+    ]);
+
+    await fs.rm(tempRoot, { recursive: true, force: true });
   });
 });

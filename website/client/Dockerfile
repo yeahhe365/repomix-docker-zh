@@ -38,7 +38,7 @@ FROM deps AS build
 
 ARG VITE_REPOMIX_API_BASE_URL=https://api.repomix.com
 ENV VITE_REPOMIX_API_BASE_URL=${VITE_REPOMIX_API_BASE_URL}
-ENV NODE_OPTIONS=--max-old-space-size=4096
+ENV NODE_OPTIONS=--max-old-space-size=1536
 
 # Copy source code (exclude node_modules to avoid conflict with deps stage)
 COPY --exclude=node_modules . .

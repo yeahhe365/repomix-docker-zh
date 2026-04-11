@@ -28,6 +28,17 @@ interface RepomixRuntime {
   setLogLevel: (level: number) => void;
 }
 
+export interface LocalPathDirectoryEntry {
+  name: string;
+  path: string;
+}
+
+export interface LocalPathDirectoryListing {
+  currentPath: string | null;
+  parentPath: string | null;
+  entries: LocalPathDirectoryEntry[];
+}
+
 export function isLocalPathModeEnabled(): boolean {
   return process.env.ENABLE_LOCAL_PATH_MODE === 'true';
 }
@@ -43,6 +54,16 @@ function getAllowlistRoots(): string[] {
     .map((item) => item.trim())
     .filter(Boolean)
     .map((item) => path.resolve(item));
+}
+
+function getBrowseRoots(): string[] {
+  const allowlistRoots = getAllowlistRoots();
+
+  if (allowlistRoots.length > 0) {
+    return allowlistRoots;
+  }
+
+  return [path.parse(process.cwd()).root];
 }
 
 function isPathWithinRoot(targetPath: string, rootPath: string): boolean {
@@ -128,6 +149,45 @@ export async function validateAndResolveLocalPath(localPath: string): Promise<st
   }
 
   return resolvedPath;
+}
+
+export async function listLocalPathDirectories(localPath?: string): Promise<LocalPathDirectoryListing> {
+  if (!isLocalPathModeEnabled()) {
+    throw new AppError('Local path mode is disabled.', 403);
+  }
+
+  const browseRoots = getBrowseRoots();
+
+  if (!localPath) {
+    return {
+      currentPath: null,
+      parentPath: null,
+      entries: browseRoots.map((rootPath) => ({
+        name: rootPath,
+        path: rootPath,
+      })),
+    };
+  }
+
+  const resolvedPath = await validateAndResolveLocalPath(localPath);
+  const directoryEntries = await fs.readdir(resolvedPath, { withFileTypes: true });
+  const entries = directoryEntries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => ({
+      name: entry.name,
+      path: path.join(resolvedPath, entry.name),
+    }))
+    .sort((left, right) => left.name.localeCompare(right.name));
+
+  const matchingRoot = browseRoots.find((rootPath) => isPathWithinRoot(resolvedPath, rootPath)) ?? null;
+  const parentPath =
+    matchingRoot && resolvedPath !== matchingRoot ? path.dirname(resolvedPath) : null;
+
+  return {
+    currentPath: resolvedPath,
+    parentPath,
+    entries,
+  };
 }
 
 export async function processLocalPath(

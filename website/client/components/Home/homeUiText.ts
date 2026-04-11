@@ -60,6 +60,17 @@ export interface HomeUiText {
     localPathPlaceholder: string;
     localPathInputAria: string;
     invalidLocalPath: string;
+    browseLocalPath: string;
+    browseLocalPathAria: string;
+    localPathBrowserTitle: string;
+    localPathBrowserRoots: string;
+    localPathBrowserBack: string;
+    localPathBrowserClose: string;
+    localPathBrowserLoading: string;
+    localPathBrowserEmpty: string;
+    localPathBrowserSelectCurrent: string;
+    localPathBrowserRetry: string;
+    localPathBrowserKeyboardHint: string;
     fileSelectionWarning: (threshold: number) => string;
   };
   fileSelection: {
@@ -208,6 +219,17 @@ const enText: HomeUiText = {
     localPathPlaceholder: 'Absolute local path (e.g., /Users/jones/Documents/Code/MyProject)',
     localPathInputAria: 'Absolute local path',
     invalidLocalPath: 'Please enter a valid absolute path (e.g., /Users/jones/Documents/Code/MyProject)',
+    browseLocalPath: 'Browse',
+    browseLocalPathAria: 'Browse local directories',
+    localPathBrowserTitle: 'Choose a local folder',
+    localPathBrowserRoots: 'Allowed roots',
+    localPathBrowserBack: 'Up one level',
+    localPathBrowserClose: 'Close',
+    localPathBrowserLoading: 'Loading directories...',
+    localPathBrowserEmpty: 'No subdirectories found in this folder.',
+    localPathBrowserSelectCurrent: 'Select current folder',
+    localPathBrowserRetry: 'Retry',
+    localPathBrowserKeyboardHint: 'Use arrow keys to move, Enter to open, Backspace to go up, Esc to close',
     fileSelectionWarning: (threshold) =>
       `Selecting more than ${threshold} files may cause processing issues or timeouts. Consider reducing your selection for better performance.`,
   },
@@ -363,6 +385,17 @@ const zhText: HomeUiText = {
     localPathPlaceholder: '本地绝对路径（例如：/Users/jones/Documents/Code/MyProject）',
     localPathInputAria: '本地绝对路径',
     invalidLocalPath: '请输入有效的绝对路径（例如：/Users/jones/Documents/Code/MyProject）',
+    browseLocalPath: '浏览',
+    browseLocalPathAria: '浏览本地目录',
+    localPathBrowserTitle: '选择本地文件夹',
+    localPathBrowserRoots: '允许访问的根目录',
+    localPathBrowserBack: '返回上一级',
+    localPathBrowserClose: '关闭',
+    localPathBrowserLoading: '正在加载目录...',
+    localPathBrowserEmpty: '这个文件夹下没有可进入的子目录。',
+    localPathBrowserSelectCurrent: '选择当前文件夹',
+    localPathBrowserRetry: '重试',
+    localPathBrowserKeyboardHint: '方向键选择，回车进入，退格返回，Esc 关闭',
     fileSelectionWarning: (threshold) =>
       `选择超过 ${threshold} 个文件可能导致处理问题或超时。建议减少选择范围以获得更好的性能。`,
   },
