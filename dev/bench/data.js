@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1775893992302,
+  "lastUpdate": 1776049829010,
   "repoUrl": "https://github.com/yeahhe365/repomix-local-webui",
   "entries": {
     "Repomix Performance": [
@@ -268,6 +268,51 @@ window.BENCHMARK_DATA = {
             "range": "±61",
             "unit": "ms",
             "extra": "Median of 20 runs\nQ1: 2507ms, Q3: 2568ms\nAll times: 2482, 2489, 2491, 2501, 2504, 2507, 2510, 2514, 2515, 2527, 2536, 2541, 2545, 2563, 2566, 2568, 2568, 2568, 2569, 2605ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "64304674+yeahhe365@users.noreply.github.com",
+            "name": "从何开始123",
+            "username": "yeahhe365"
+          },
+          "committer": {
+            "email": "64304674+yeahhe365@users.noreply.github.com",
+            "name": "从何开始123",
+            "username": "yeahhe365"
+          },
+          "distinct": true,
+          "id": "3b32341a7d858107acfc879b48bb0012b3382538",
+          "message": "fix(website): remove hard pack timeouts",
+          "timestamp": "2026-04-13T11:08:18+08:00",
+          "tree_id": "1db19312d6af2ba4dbf5d173d6039addf1d3f792",
+          "url": "https://github.com/yeahhe365/repomix-local-webui/commit/3b32341a7d858107acfc879b48bb0012b3382538"
+        },
+        "date": 1776049828268,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Repomix Pack (macOS)",
+            "value": 1241,
+            "range": "±103",
+            "unit": "ms",
+            "extra": "Median of 30 runs\nQ1: 1207ms, Q3: 1310ms\nAll times: 1181, 1186, 1197, 1203, 1204, 1206, 1206, 1207, 1210, 1210, 1215, 1218, 1218, 1228, 1238, 1241, 1250, 1252, 1255, 1263, 1270, 1296, 1310, 1313, 1327, 1356, 1426, 1433, 1438, 1471ms"
+          },
+          {
+            "name": "Repomix Pack (Linux)",
+            "value": 1957,
+            "range": "±45",
+            "unit": "ms",
+            "extra": "Median of 20 runs\nQ1: 1940ms, Q3: 1985ms\nAll times: 1921, 1925, 1933, 1936, 1939, 1940, 1942, 1945, 1947, 1947, 1957, 1967, 1971, 1975, 1978, 1985, 2004, 2007, 2316, 2329ms"
+          },
+          {
+            "name": "Repomix Pack (Windows)",
+            "value": 2366,
+            "range": "±29",
+            "unit": "ms",
+            "extra": "Median of 20 runs\nQ1: 2358ms, Q3: 2387ms\nAll times: 2310, 2319, 2339, 2347, 2355, 2358, 2359, 2360, 2363, 2365, 2366, 2369, 2369, 2383, 2386, 2387, 2389, 2391, 2414, 2448ms"
           }
         ]
       }
