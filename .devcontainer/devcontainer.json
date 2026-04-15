@@ -12,7 +12,7 @@
     "--cap-add=NET_ADMIN",
     "--cap-add=NET_RAW"
   ],
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "bash .devcontainer/bootstrap-workspace.sh",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -45,6 +45,6 @@
   },
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/repomix,type=bind,consistency=delegated",
   "workspaceFolder": "/workspace/repomix",
-  "postStartCommand": "sudo /usr/local/bin/init-firewall.sh",
+  "postStartCommand": "bash .devcontainer/start-website-services.sh",
   "waitFor": "postStartCommand"
 }
