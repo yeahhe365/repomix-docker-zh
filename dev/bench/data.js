@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776244276724,
+  "lastUpdate": 1776515793321,
   "repoUrl": "https://github.com/yeahhe365/repomix-local-webui",
   "entries": {
     "Repomix Performance": [
@@ -358,6 +358,51 @@ window.BENCHMARK_DATA = {
             "range": "±46",
             "unit": "ms",
             "extra": "Median of 19 runs\nQ1: 2480ms, Q3: 2526ms\nAll times: 2430, 2455, 2458, 2478, 2480, 2485, 2487, 2490, 2491, 2509, 2512, 2514, 2516, 2521, 2526, 2530, 2535, 2539, 2539ms"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "64304674+yeahhe365@users.noreply.github.com",
+            "name": "从何开始123",
+            "username": "yeahhe365"
+          },
+          "committer": {
+            "email": "64304674+yeahhe365@users.noreply.github.com",
+            "name": "从何开始123",
+            "username": "yeahhe365"
+          },
+          "distinct": true,
+          "id": "fc466a0c8c27675d014425e6dd2713d379357527",
+          "message": "fix(website): tighten local path validation",
+          "timestamp": "2026-04-18T20:29:49+08:00",
+          "tree_id": "26be34c7f88ccd601611d209e3e389a0be0577db",
+          "url": "https://github.com/yeahhe365/repomix-local-webui/commit/fc466a0c8c27675d014425e6dd2713d379357527"
+        },
+        "date": 1776515792798,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Repomix Pack (macOS)",
+            "value": 1175,
+            "range": "±72",
+            "unit": "ms",
+            "extra": "Median of 30 runs\nQ1: 1158ms, Q3: 1230ms\nAll times: 1135, 1140, 1147, 1149, 1151, 1152, 1153, 1158, 1159, 1160, 1162, 1162, 1165, 1173, 1174, 1175, 1181, 1183, 1193, 1195, 1220, 1222, 1230, 1237, 1254, 1260, 1260, 1357, 1388, 1559ms"
+          },
+          {
+            "name": "Repomix Pack (Linux)",
+            "value": 1887,
+            "range": "±58",
+            "unit": "ms",
+            "extra": "Median of 20 runs\nQ1: 1858ms, Q3: 1916ms\nAll times: 1819, 1825, 1836, 1842, 1847, 1858, 1867, 1867, 1870, 1877, 1887, 1893, 1899, 1902, 1909, 1916, 1918, 1920, 1923, 1937ms"
+          },
+          {
+            "name": "Repomix Pack (Windows)",
+            "value": 2315,
+            "range": "±25",
+            "unit": "ms",
+            "extra": "Median of 20 runs\nQ1: 2303ms, Q3: 2328ms\nAll times: 2254, 2277, 2278, 2287, 2290, 2303, 2307, 2308, 2309, 2312, 2315, 2317, 2319, 2322, 2327, 2328, 2339, 2351, 2366, 2476ms"
           }
         ]
       }
