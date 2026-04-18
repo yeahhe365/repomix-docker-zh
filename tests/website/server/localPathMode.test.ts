@@ -34,6 +34,7 @@ describe('localPath mode', () => {
     process.env.ENABLE_LOCAL_PATH_MODE = 'true';
 
     const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'repomix-local-path-'));
+    process.env.LOCAL_PATH_ALLOWLIST = tempDir;
 
     await expect(validateAndResolveLocalPath(tempDir)).resolves.toBe(tempDir);
 
@@ -44,6 +45,7 @@ describe('localPath mode', () => {
     process.env.ENABLE_LOCAL_PATH_MODE = 'true';
 
     const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'repomix-local-pack-'));
+    process.env.LOCAL_PATH_ALLOWLIST = tempDir;
     await fs.writeFile(path.join(tempDir, 'hello.ts'), 'export const hello = "world";\n');
 
     const result = await processLocalPath(tempDir, 'plain', {});
@@ -51,6 +53,28 @@ describe('localPath mode', () => {
     expect(result.metadata.repository).toBe(tempDir);
     expect(result.metadata.summary?.totalFiles).toBe(1);
     expect(result.content).toContain('hello = "world"');
+
+    await fs.rm(tempDir, { recursive: true, force: true });
+  });
+
+  it('rejects browsing roots when no allowlist is configured', async () => {
+    process.env.ENABLE_LOCAL_PATH_MODE = 'true';
+
+    await expect(listLocalPathDirectories()).rejects.toMatchObject({
+      message: 'Local path browsing requires LOCAL_PATH_ALLOWLIST to be configured.',
+      statusCode: 403,
+    });
+  });
+
+  it('rejects packing a local directory when no allowlist is configured', async () => {
+    process.env.ENABLE_LOCAL_PATH_MODE = 'true';
+
+    const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'repomix-local-pack-no-allowlist-'));
+
+    await expect(processLocalPath(tempDir, 'plain', {})).rejects.toMatchObject({
+      message: 'Local path access requires LOCAL_PATH_ALLOWLIST to be configured.',
+      statusCode: 403,
+    });
 
     await fs.rm(tempDir, { recursive: true, force: true });
   });
