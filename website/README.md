@@ -8,10 +8,10 @@ This directory contains the source code for the Repomix website, built with [Vit
 
 ## Development
 
-To start the development server:
+To run the packaged website locally with Docker:
 
 ```bash
-# Start the website development server
+# Start the local Docker deployment
 npm run website
 
 # Access the website at http://localhost:5173/
@@ -30,4 +30,4 @@ To build the website for production:
 npm run website:build
 ```
 
-The built files will be available in the `client/dist` directory. 
+The built files will be available in the `client/dist` directory.

@@ -79,12 +79,12 @@ When adding new features or making changes, please update the relevant documenta
 
 ### Website Development
 
-The Repomix website is built with [VitePress](https://vitepress.dev/). To run the website locally:
+The Repomix website is built with [VitePress](https://vitepress.dev/). To run the packaged website locally with Docker:
 
 ```bash
 # Prerequisites: Docker must be installed on your system
 
-# Start the website development server
+# Start the local Docker deployment
 npm run website
 
 # Access the website at http://localhost:5173/
