@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { resolveApiBaseUrl } from '../../../website/client/components/api/baseUrl';
+import { resolveApiBaseUrl } from '../../../website/client/components/api/baseUrl.js';
 
 describe('resolveApiBaseUrl', () => {
   const localhostLocation = {

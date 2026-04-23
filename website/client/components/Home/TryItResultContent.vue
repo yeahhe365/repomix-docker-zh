@@ -61,7 +61,10 @@ const formattedTimestamp = computed(() => {
 });
 
 const formattedResultFormat = computed(() => {
-  return uiText.value.options.formatNames[props.result.format as keyof typeof uiText.value.options.formatNames] || props.result.format;
+  return (
+    uiText.value.options.formatNames[props.result.format as keyof typeof uiText.value.options.formatNames] ||
+    props.result.format
+  );
 });
 
 // Generate CLI command for local execution

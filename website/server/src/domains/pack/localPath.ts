@@ -1,14 +1,11 @@
+import { randomUUID } from 'node:crypto';
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { randomUUID } from 'node:crypto';
 import type { PackOptions, PackProgressCallback, PackResult } from '../../types.js';
 import { AppError } from '../../utils/errorHandler.js';
-import {
-  assertLocalPathAllowlistConfigured,
-  getBrowseRoots,
-  isPathWithinRoot,
-} from './localPathAccess.js';
+import { assertLocalPathAllowlistConfigured, getBrowseRoots, isPathWithinRoot } from './localPathAccess.js';
+import type { RuntimePackResult } from './localPathRuntime.js';
 import { loadRepomixRuntime, prepareWorkerEnvironment } from './localPathRuntime.js';
 
 export interface LocalPathDirectoryEntry {
@@ -24,6 +21,18 @@ export interface LocalPathDirectoryListing {
 
 export function isLocalPathModeEnabled(): boolean {
   return process.env.ENABLE_LOCAL_PATH_MODE === 'true';
+}
+
+async function resolveRealAllowlistRoots(allowlistRoots: string[]): Promise<string[]> {
+  return Promise.all(
+    allowlistRoots.map(async (rootPath) => {
+      try {
+        return await fs.realpath(rootPath);
+      } catch {
+        return rootPath;
+      }
+    }),
+  );
 }
 
 export async function validateAndResolveLocalPath(localPath: string): Promise<string> {
@@ -43,11 +52,7 @@ export async function validateAndResolveLocalPath(localPath: string): Promise<st
   const resolvedPath = path.resolve(trimmedPath);
   const allowlistRoots = assertLocalPathAllowlistConfigured('access');
 
-  if (!allowlistRoots.some((rootPath) => isPathWithinRoot(resolvedPath, rootPath))) {
-    throw new AppError('Local path is outside the allowed directories.', 403);
-  }
-
-  let stats;
+  let stats: Awaited<ReturnType<typeof fs.stat>>;
   try {
     stats = await fs.stat(resolvedPath);
   } catch {
@@ -56,6 +61,13 @@ export async function validateAndResolveLocalPath(localPath: string): Promise<st
 
   if (!stats.isDirectory()) {
     throw new AppError('Local path must point to a directory.', 400);
+  }
+
+  const realPath = await fs.realpath(resolvedPath);
+  const realAllowlistRoots = await resolveRealAllowlistRoots(allowlistRoots);
+
+  if (!realAllowlistRoots.some((rootPath) => isPathWithinRoot(realPath, rootPath))) {
+    throw new AppError('Local path is outside the allowed directories.', 403);
   }
 
   return resolvedPath;
@@ -90,8 +102,7 @@ export async function listLocalPathDirectories(localPath?: string): Promise<Loca
     .sort((left, right) => left.name.localeCompare(right.name));
 
   const matchingRoot = browseRoots.find((rootPath) => isPathWithinRoot(resolvedPath, rootPath)) ?? null;
-  const parentPath =
-    matchingRoot && resolvedPath !== matchingRoot ? path.dirname(resolvedPath) : null;
+  const parentPath = matchingRoot && resolvedPath !== matchingRoot ? path.dirname(resolvedPath) : null;
 
   return {
     currentPath: resolvedPath,

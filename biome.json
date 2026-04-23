@@ -19,8 +19,12 @@
       "!**/website/client/.vitepress/.temp",
       "!**/website/client/.vitepress/dist",
       "!**/website/client/.vitepress/cache",
+      "!**/website/client/test-results",
+      "!**/website/client/stats.html",
       "!**/website/server/dist",
+      "!**/website/server/dist-bundled",
       "!**/browser/dist",
+      "!**/browser/.wxt",
       "!**/browser/packages",
       "!.claude/worktrees"
     ]

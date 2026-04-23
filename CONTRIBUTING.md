@@ -1,16 +1,16 @@
 # Contribution Guide
 
-Thanks for your interest in **Repomix**! 🚀 We'd love your help to make it even better. Here's how you can get involved:
+Thanks for your interest in **repomix-local-webui**! We'd love your help to make this local-first Repomix Web UI fork even better. Here's how you can get involved:
 
 
 - **Create an Issue**: Spot a bug? Have an idea for a new feature? Let us know by creating an issue.
 - **Submit a Pull Request**: Found something to fix or improve? Jump in and submit a PR!
 - **Spread the Word**: Share your experience with Repomix on social media, blogs, or with your tech community.
-- **Use Repomix**: The best feedback comes from real-world usage, so feel free to integrate Repomix into your own projects!
+- **Use repomix-local-webui**: The best feedback comes from real-world usage, especially local Docker deployments and local-path Web UI workflows.
 
 ## Maintainers
 
-Repomix is maintained by Yamadashy ([@yamadashy](https://github.com/yamadashy)). While all contributions are welcome, please understand that not every suggestion may be accepted if they don't align with the project's goals or coding standards.
+This fork is maintained at [yeahhe365/repomix-local-webui](https://github.com/yeahhe365/repomix-local-webui). The core Repomix CLI comes from upstream [yamadashy/repomix](https://github.com/yamadashy/repomix), so changes that only affect the upstream project may be redirected there.
 
 ---
 
@@ -24,11 +24,11 @@ Before submitting a Pull Request, please ensure:
 
 ## Local Development
 
-To set up Repomix for local development:
+To set up this fork for local development:
 
 ```bash
-git clone https://github.com/yamadashy/repomix.git
-cd repomix
+git clone https://github.com/yeahhe365/repomix-local-webui.git
+cd repomix-local-webui
 npm install
 ```
 
@@ -39,7 +39,7 @@ npm run repomix
 ```
 
 ### Docker Usage
-You can also run Repomix using Docker. Here's how:
+You can also run the CLI image using Docker. Here's how:
 
 First, build the Docker image:
 ```bash
@@ -79,7 +79,7 @@ When adding new features or making changes, please update the relevant documenta
 
 ### Website Development
 
-The Repomix website is built with [VitePress](https://vitepress.dev/). To run the packaged website locally with Docker:
+The local Web UI is built with [VitePress](https://vitepress.dev/). To run the packaged website locally with Docker:
 
 ```bash
 # Prerequisites: Docker must be installed on your system
@@ -95,8 +95,7 @@ The website source code is located in the `website` directory. The main componen
 - `website/client`: Frontend code (Vue.js components, styles, etc.)
 - `website/server`: Backend API server
 
-When updating documentation, contributors only need to update the README.md file.
-The maintainers will handle the website documentation updates.
+When updating fork-specific local deployment behavior, please update the relevant website guide pages as well as the README when needed.
 
 ## Releasing
 

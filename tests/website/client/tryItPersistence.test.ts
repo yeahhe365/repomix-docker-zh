@@ -1,26 +1,26 @@
 import { describe, expect, it } from 'vitest';
+import { DEFAULT_PACK_OPTIONS } from '../../../website/client/composables/usePackOptions.js';
 import {
   clearLocalPathBrowserState,
   createDefaultLocalPathBrowserState,
   loadLocalPathBrowserState,
   loadTryItPageState,
   resolveInitialTryItPageState,
+  type StorageLike,
   saveLocalPathBrowserState,
   saveTryItPageState,
-  type StorageLike,
-} from '../../../website/client/utils/tryItPersistence';
-import { DEFAULT_PACK_OPTIONS } from '../../../website/client/composables/usePackOptions';
+} from '../../../website/client/utils/tryItPersistence.js';
 
 function createMemoryStorage(): StorageLike {
   const store = new Map<string, string>();
   return {
-    getItem(key) {
+    getItem(key: string) {
       return store.get(key) ?? null;
     },
-    setItem(key, value) {
+    setItem(key: string, value: string) {
       store.set(key, value);
     },
-    removeItem(key) {
+    removeItem(key: string) {
       store.delete(key);
     },
   };

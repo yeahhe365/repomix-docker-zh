@@ -1,11 +1,11 @@
 import { computed, onMounted, ref, watch } from 'vue';
 import type { FileInfo, PackProgressStage, PackResult } from '../components/api/client';
-import { handlePackRequest } from '../components/utils/requestHandlers';
 import { isValidAbsolutePath } from '../components/Home/localPathInput';
-import { isValidRemoteValue } from '../components/utils/validation';
-import { parseUrlParameters } from '../utils/urlParams';
-import { loadTryItPageState, resolveInitialTryItPageState, saveTryItPageState } from '../utils/tryItPersistence';
 import { useHomeUiText } from '../components/Home/useHomeUiText';
+import { handlePackRequest } from '../components/utils/requestHandlers';
+import { isValidRemoteValue } from '../components/utils/validation';
+import { loadTryItPageState, resolveInitialTryItPageState, saveTryItPageState } from '../utils/tryItPersistence';
+import { parseUrlParameters } from '../utils/urlParams';
 import { usePackOptions } from './usePackOptions';
 
 export type InputMode = 'url' | 'file' | 'localPath';

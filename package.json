@@ -1,6 +1,7 @@
 {
   "name": "repomix",
   "version": "1.13.1",
+  "private": true,
   "description": "A tool to pack repository contents to single file for AI consumption",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -110,7 +111,7 @@
     "@types/strip-comments": "^2.0.4",
     "@typescript/native-preview": "^7.0.0-dev.20260328.1",
     "@vitest/coverage-v8": "^4.1.2",
-    "@xmldom/xmldom": "^0.8.11",
+    "@xmldom/xmldom": "^0.9.10",
     "git-up": "^8.1.1",
     "oxlint": "^1.57.0",
     "rimraf": "^6.1.3",

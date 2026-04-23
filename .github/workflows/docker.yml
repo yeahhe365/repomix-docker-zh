@@ -21,6 +21,9 @@ on:
 permissions:
   contents: read
 
+env:
+  IMAGE_NAME: ghcr.io/yeahhe365/repomix-local-webui
+
 jobs:
   build:
     runs-on: ${{ matrix.runner }}
@@ -60,7 +63,7 @@ jobs:
         uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5.10.0
         with:
           images: |
-            ghcr.io/yamadashy/repomix
+            ${{ env.IMAGE_NAME }}
 
       - name: Login to GitHub Container Registry
         if: github.event_name != 'pull_request'
@@ -79,7 +82,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha,scope=${{ env.PLATFORM_PAIR }}
           cache-to: type=gha,mode=max,scope=${{ env.PLATFORM_PAIR }}
-          outputs: type=image,"name=ghcr.io/yamadashy/repomix",push-by-digest=true,name-canonical=true,push=${{ github.event_name != 'pull_request' && 'true' || 'false' }}
+          outputs: type=image,"name=${{ env.IMAGE_NAME }}",push-by-digest=true,name-canonical=true,push=${{ github.event_name != 'pull_request' && 'true' || 'false' }}
 
       - name: Export digest
         if: github.event_name != 'pull_request'
@@ -121,7 +124,7 @@ jobs:
         uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5.10.0
         with:
           images: |
-            ghcr.io/yamadashy/repomix
+            ${{ env.IMAGE_NAME }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -142,4 +145,4 @@ jobs:
         run: |
           # shellcheck disable=SC2046
           docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
-            $(printf 'ghcr.io/yamadashy/repomix@sha256:%s ' *)
+            $(printf '${{ env.IMAGE_NAME }}@sha256:%s ' *)

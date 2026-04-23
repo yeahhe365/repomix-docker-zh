@@ -1,25 +1,39 @@
-import { configDe } from './configDe';
-import { configEnUs } from './configEnUs';
-import { configEs } from './configEs';
-import { configFr } from './configFr';
-import { configHi } from './configHi';
-import { configId } from './configId';
-import { configIt } from './configIt';
-import { configJa } from './configJa';
-import { configKo } from './configKo';
-import { configPtBr } from './configPtBr';
-import { configRu } from './configRu';
-import { configTr } from './configTr';
-import { configVi } from './configVi';
-import { configZhCn } from './configZhCn';
-import { configZhTw } from './configZhTw';
+import { configDe } from './configDe.js';
+import { configEnUs } from './configEnUs.js';
+import { configEs } from './configEs.js';
+import { configFr } from './configFr.js';
+import { configHi } from './configHi.js';
+import { configId } from './configId.js';
+import { configIt } from './configIt.js';
+import { configJa } from './configJa.js';
+import { configKo } from './configKo.js';
+import { configPtBr } from './configPtBr.js';
+import { configRu } from './configRu.js';
+import { configTr } from './configTr.js';
+import { configVi } from './configVi.js';
+import { configZhCn } from './configZhCn.js';
+import { configZhTw } from './configZhTw.js';
 
 const ZH_CN_PREFIX = '/zh-cn';
 const EN_PREFIX = '/en';
 
 type ThemeConfig = NonNullable<typeof configEnUs.themeConfig>;
-type Nav = NonNullable<ThemeConfig['nav']>;
-type Sidebar = NonNullable<ThemeConfig['sidebar']>;
+type NavItem = {
+  link?: string;
+  activeMatch?: string;
+  items?: NavItem[];
+  [key: string]: unknown;
+};
+type Nav = NavItem[];
+type SidebarItem = {
+  link: string;
+  [key: string]: unknown;
+};
+type SidebarGroup = {
+  items: SidebarItem[];
+  [key: string]: unknown;
+};
+type Sidebar = Record<string, SidebarGroup[]>;
 
 function stripLocalePrefix(value: string, prefix: string): string {
   const marker = value.startsWith('^') ? '^' : '';
@@ -53,7 +67,7 @@ function addLocalePrefix(value: string, prefix: string): string {
 
 function remapNav(nav: Nav | undefined, remap: (value: string) => string): Nav | undefined {
   return nav?.map((item) => {
-    if ('link' in item) {
+    if (item.link) {
       return {
         ...item,
         link: remap(item.link),
@@ -61,11 +75,11 @@ function remapNav(nav: Nav | undefined, remap: (value: string) => string): Nav |
       };
     }
 
-    if ('items' in item) {
+    if (item.items) {
       return {
         ...item,
         items: item.items.map((child) => {
-          if ('link' in child) {
+          if (child.link) {
             return { ...child, link: remap(child.link) };
           }
           return child;
@@ -96,15 +110,18 @@ function remapSidebar(sidebar: Sidebar | undefined, remap: (value: string) => st
   );
 }
 
-function remapThemeConfig(themeConfig: ThemeConfig | undefined, remap: (value: string) => string): ThemeConfig | undefined {
+function remapThemeConfig(
+  themeConfig: ThemeConfig | undefined,
+  remap: (value: string) => string,
+): ThemeConfig | undefined {
   if (!themeConfig) {
     return themeConfig;
   }
 
   return {
     ...themeConfig,
-    nav: remapNav(themeConfig.nav, remap),
-    sidebar: remapSidebar(themeConfig.sidebar, remap),
+    nav: remapNav(themeConfig.nav as Nav | undefined, remap) as ThemeConfig['nav'],
+    sidebar: remapSidebar(themeConfig.sidebar as Sidebar | undefined, remap) as ThemeConfig['sidebar'],
   };
 }
 

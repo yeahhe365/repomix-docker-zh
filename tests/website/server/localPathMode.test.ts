@@ -79,6 +79,27 @@ describe('localPath mode', () => {
     await fs.rm(tempDir, { recursive: true, force: true });
   });
 
+  it('rejects a symlinked directory that resolves outside the allowlist', async () => {
+    process.env.ENABLE_LOCAL_PATH_MODE = 'true';
+
+    const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'repomix-local-root-'));
+    const outsideRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'repomix-local-outside-'));
+    const symlinkPath = path.join(tempRoot, 'outside-link');
+    process.env.LOCAL_PATH_ALLOWLIST = tempRoot;
+
+    try {
+      await fs.symlink(outsideRoot, symlinkPath, process.platform === 'win32' ? 'junction' : 'dir');
+
+      await expect(validateAndResolveLocalPath(symlinkPath)).rejects.toMatchObject({
+        message: 'Local path is outside the allowed directories.',
+        statusCode: 403,
+      });
+    } finally {
+      await fs.rm(tempRoot, { recursive: true, force: true });
+      await fs.rm(outsideRoot, { recursive: true, force: true });
+    }
+  });
+
   it('lists allowlist roots when browsing starts without a selected path', async () => {
     process.env.ENABLE_LOCAL_PATH_MODE = 'true';
 

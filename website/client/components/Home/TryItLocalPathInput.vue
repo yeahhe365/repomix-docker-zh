@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { AlertTriangle, FolderOpen } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
+import { isValidAbsolutePath } from './localPathInput';
 import PackButton from './PackButton.vue';
 import TryItLocalPathBrowser from './TryItLocalPathBrowser.vue';
-import { isValidAbsolutePath } from './localPathInput';
 import { useHomeUiText } from './useHomeUiText';
 
 const props = defineProps<{

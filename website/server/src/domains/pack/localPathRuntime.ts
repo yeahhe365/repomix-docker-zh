@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-interface RuntimePackResult {
+export interface RuntimePackResult {
   totalFiles: number;
   totalCharacters: number;
   totalTokens: number;

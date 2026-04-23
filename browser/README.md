@@ -5,7 +5,7 @@ A browser extension that adds a Repomix button to GitHub repository pages.
 ## 🚀 Features
 
 - Adds a "Repomix" button to GitHub repository pages
-- One-click redirect to Repomix (https://repomix.com)
+- One-click redirect to the upstream hosted Repomix website (https://repomix.com)
 - Seamlessly integrates with GitHub's UI design
 - Works on Chrome, Firefox, and Edge
 
@@ -20,7 +20,7 @@ A browser extension that adds a Repomix button to GitHub repository pages.
 
 ### Prerequisites
 
-- Node.js 22 or higher
+- Node.js 24.0.1 or higher
 
 ### Setup
 

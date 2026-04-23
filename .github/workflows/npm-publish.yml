@@ -34,6 +34,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Stop if this fork is not publishable
+        run: |
+          if node -e "process.exit(require('./package.json').private === true ? 0 : 1)"; then
+            echo "::error::This fork is marked private to avoid publishing over the upstream repomix package name."
+            echo "::error::Rename the package and remove private=true before enabling npm publishing."
+            exit 1
+          fi
+
       - name: Check if version already published
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")

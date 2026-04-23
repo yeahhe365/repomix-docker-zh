@@ -26,7 +26,12 @@ export function resolveApiBaseUrl(
 ): string {
   const override = env.VITE_REPOMIX_API_BASE_URL?.trim();
 
-  if (env.PROD && runtimeLocation && isLoopbackHost(runtimeLocation.hostname) && (!override || isLoopbackUrl(override))) {
+  if (
+    env.PROD &&
+    runtimeLocation &&
+    isLoopbackHost(runtimeLocation.hostname) &&
+    (!override || isLoopbackUrl(override))
+  ) {
     return runtimeLocation.origin;
   }
 

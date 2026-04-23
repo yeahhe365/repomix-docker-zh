@@ -6,12 +6,20 @@ import { generateOutput } from '../../../src/core/output/outputGenerate.js';
 import { createMockConfig } from '../../testing/testUtils.js';
 
 const createStrictXmlParser = () => {
-  const throwOnError = (msg: string) => {
+  const throwOnError = (_level: string, msg: string) => {
     throw new Error(msg);
   };
   return new DOMParser({
-    errorHandler: { warning: throwOnError, error: throwOnError, fatalError: throwOnError },
+    onError: throwOnError,
   });
+};
+
+const getDocumentElement = (doc: ReturnType<DOMParser['parseFromString']>) => {
+  const element = doc.documentElement;
+  if (!element) {
+    throw new Error('Expected XML document element');
+  }
+  return element;
 };
 
 describe('outputGenerate', () => {
@@ -121,7 +129,7 @@ describe('outputGenerate', () => {
     const output = await generateOutput([process.cwd()], mockConfig, mockProcessedFiles, []);
 
     const doc = createStrictXmlParser().parseFromString(output, 'text/xml');
-    const repomix = doc.documentElement;
+    const repomix = getDocumentElement(doc);
 
     expect(repomix.getElementsByTagName('file_summary').length).toBe(1);
 
@@ -187,7 +195,7 @@ describe('outputGenerate', () => {
     const mockProcessedFiles: ProcessedFile[] = [{ path: 'file1.txt', content: '<div>foo</div>' }];
     const output = await generateOutput([process.cwd()], mockConfig, mockProcessedFiles, []);
     const doc = createStrictXmlParser().parseFromString(output, 'text/xml');
-    const repomix = doc.documentElement;
+    const repomix = getDocumentElement(doc);
     expect(repomix.getElementsByTagName('file_summary').length).toBe(0);
     const header = repomix.getElementsByTagName('user_provided_header')[0];
     expect(header.textContent).toBe('XML HEADER');

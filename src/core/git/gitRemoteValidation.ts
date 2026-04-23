@@ -44,7 +44,8 @@ export const isValidRemoteValue = (remoteValue: string, refs: string[] = []): bo
   }
 
   try {
-    const parsedFields = gitUrlParse(remoteValue, refs) as IGitUrl;
+    const parseGitUrl = gitUrlParse as unknown as (value: string, refs?: string[]) => IGitUrl;
+    const parsedFields = parseGitUrl(remoteValue, refs);
     const ownerSlashRepo =
       parsedFields.full_name.split('/').length > 1 ? parsedFields.full_name.split('/').slice(-2).join('/') : '';
 

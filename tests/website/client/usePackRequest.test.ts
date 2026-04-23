@@ -58,7 +58,7 @@ describe('usePackRequest', () => {
 
   it('does not schedule an automatic timeout when submitting a pack request', async () => {
     const setTimeoutSpy = vi.spyOn(globalThis, 'setTimeout');
-    const { usePackRequest } = await import('../../../website/client/composables/usePackRequest');
+    const { usePackRequest } = await import('../../../website/client/composables/usePackRequest.js');
 
     const request = usePackRequest();
     request.inputUrl.value = 'yamadashy/repomix';

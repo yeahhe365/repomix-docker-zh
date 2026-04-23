@@ -25,7 +25,9 @@ describe('homeUiText', () => {
     expect(text.result.tabs.files).toBe('File Selection');
     expect(text.upload.browseLocalPath).toBe('Browse');
     expect(text.upload.localPathBrowserSelectCurrent).toBe('Select current folder');
-    expect(text.upload.localPathBrowserKeyboardHint).toBe('Use arrow keys to move, Enter to open, Backspace to go up, Esc to close');
+    expect(text.upload.localPathBrowserKeyboardHint).toBe(
+      'Use arrow keys to move, Enter to open, Backspace to go up, Esc to close',
+    );
     expect(text.upload.localPathBrowserSearchPlaceholder).toBe('Search folders in the current directory');
     expect(text.upload.localPathBrowserRecentTitle).toBe('Recent');
   });

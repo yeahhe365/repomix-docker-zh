@@ -1,5 +1,5 @@
-import type { Context } from 'hono';
 import path from 'node:path';
+import type { Context } from 'hono';
 import { stream } from 'hono/streaming';
 import { isValidRemoteValue } from 'repomix';
 import { z } from 'zod';
@@ -186,7 +186,13 @@ export const packAction = async (c: Context) => {
         format: validatedData.format,
         repository: result.metadata.repository,
         duration: formatLatencyForDisplay(startTime),
-        inputType: validatedData.file ? 'file' : validatedData.localPath ? 'localPath' : validatedData.url ? 'url' : 'unknown',
+        inputType: validatedData.file
+          ? 'file'
+          : validatedData.localPath
+            ? 'localPath'
+            : validatedData.url
+              ? 'url'
+              : 'unknown',
         clientInfo: {
           ip: clientInfo.ip,
           userAgent: clientInfo.userAgent,

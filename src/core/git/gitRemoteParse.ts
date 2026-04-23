@@ -1,7 +1,7 @@
 import gitUrlParse, { type GitUrl } from 'git-url-parse';
 import { RepomixError } from '../../shared/errorHandle.js';
 import { logger } from '../../shared/logger.js';
-import { isAzureDevOpsUrl, isValidRemoteValue, isValidShorthand } from './gitRemoteValidation.js';
+import { isAzureDevOpsUrl, isValidShorthand } from './gitRemoteValidation.js';
 
 interface IGitUrl extends GitUrl {
   commit: string | undefined;

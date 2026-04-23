@@ -29,8 +29,9 @@ export function useZipProcessor(messages: ZipProcessorMessages = {}) {
       });
     } catch (error) {
       throw new Error(
-        messages.failedToCreateZip?.(error instanceof Error ? error.message : messages.unknownError ?? 'Unknown error') ??
-          `Failed to create ZIP file: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        messages.failedToCreateZip?.(
+          error instanceof Error ? error.message : (messages.unknownError ?? 'Unknown error'),
+        ) ?? `Failed to create ZIP file: ${error instanceof Error ? error.message : 'Unknown error'}`,
       );
     }
   }

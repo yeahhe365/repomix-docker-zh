@@ -1,27 +1,26 @@
 <div align="center" markdown="1">
    <h1>repomix-local-webui</h1>
-   <p><strong>A local-first Repomix Web UI fork for Docker deployment and Simplified Chinese workflows.</strong></p>
+   <p><strong>一个面向 Docker 部署与简体中文工作流的本地优先 Repomix Web UI 分支。</strong></p>
    <p>
-      <a href="https://github.com/yeahhe365/repomix-local-webui">GitHub Repository</a>
+      <a href="https://github.com/yeahhe365/repomix-local-webui">GitHub 仓库</a>
       ·
-      <a href="https://github.com/yamadashy/repomix">Upstream Repomix</a>
+      <a href="https://github.com/yamadashy/repomix">上游 Repomix</a>
    </p>
    <p>
-      This fork focuses on local deployment, local-path browsing, persistent Web UI state, and a Simplified Chinese default experience.
+      这个 fork 重点强化了本地部署、本地绝对路径浏览、Web UI 状态持久化，以及默认简体中文体验。
    </p>
-   <sup>Special thanks to:</sup>
+   <sup>特别感谢：</sup>
    <br>
    <br>
    <a href="https://go.warp.dev/repomix">
       <img alt="Warp sponsorship" width="400" src="https://raw.githubusercontent.com/warpdotdev/brand-assets/main/Github/Sponsor/Warp-Github-LG-01.png">
    </a>
 
-### [Warp, built for coding with multiple AI agents](https://go.warp.dev/repomix)
-[Available for MacOS, Linux, & Windows](https://go.warp.dev/repomix)<br>
+### [Warp：为多 AI 代理协作编码打造的终端](https://go.warp.dev/repomix)
+[支持 macOS、Linux 与 Windows](https://go.warp.dev/repomix)<br>
 
 
 </div>
-
 
 <hr />
 
@@ -30,39 +29,39 @@
     <img src="website/client/src/public/images/repomix-title.png" alt="Repomix" width="500" height="auto" />
   </a>
   <p align="center">
-    <b>Pack your codebase into AI-friendly formats</b>
+    <b>将你的代码库打包成 AI 更容易理解的格式</b>
   </p>
 </div>
 
 <p align="center">
-  <a href="https://repomix.com"><b>Use Repomix online! 👉 repomix.com</b></a><br>
+  <a href="https://repomix.com"><b>在线体验 Repomix 👉 repomix.com</b></a><br>
 </p>
 
 <p align="center">
-  Need discussion? Join us on <a href="https://discord.gg/wNYzTwZFku">Discord</a>!<br>
-  <i>Share your experience and tips</i><br>
-  <i>Stay updated on new features</i><br>
-  <i>Get help with configuration and usage</i><br>
+  想讨论用法？欢迎加入 <a href="https://discord.gg/wNYzTwZFku">Discord</a>！<br>
+  <i>分享经验与技巧</i><br>
+  <i>了解新功能动态</i><br>
+  <i>获取配置与使用帮助</i><br>
 </p>
 
 <hr />
 
-## Fork Highlights
+## 这个 fork 的亮点
 
-- Local-first Web UI deployment with Docker
-- Simplified Chinese as the default entry experience
-- Local absolute-path packing mode for trusted local deployments
-- Built-in local directory browser for selecting folders from the Web UI
-- Persistent page state that restores the last mode, path, options, and browser position
+- 面向本地环境的 Docker Web UI 部署
+- 默认提供简体中文入口体验
+- 支持可信本地部署场景下的本地绝对路径打包
+- 内置本地目录浏览器，可直接在 Web UI 中选择文件夹
+- 页面状态持久化，可恢复上次模式、路径、选项与浏览位置
 
-## This Fork vs Upstream
+## 与上游项目的关系
 
-This repository is a maintained fork of [yamadashy/repomix](https://github.com/yamadashy/repomix).
+这个仓库是 [yamadashy/repomix](https://github.com/yamadashy/repomix) 的维护中分支。
 
-- Upstream remains the source for the core Repomix CLI and official hosted website
-- This fork adds local deployment and local-path workflow enhancements on top of the upstream project
-- If you want the original project, use [yamadashy/repomix](https://github.com/yamadashy/repomix)
-- If you want the local Web UI variant, use [yeahhe365/repomix-local-webui](https://github.com/yeahhe365/repomix-local-webui)
+- 上游项目仍然是 Repomix CLI 与官方托管网站的核心来源
+- 这个 fork 在保留上游 CLI 行为的基础上，增加了本地部署与本地路径工作流增强
+- 如果你想使用原版项目，请前往 [yamadashy/repomix](https://github.com/yamadashy/repomix)
+- 如果你想使用本地 Web UI 变体，请使用 [yeahhe365/repomix-local-webui](https://github.com/yeahhe365/repomix-local-webui)
 
 [![npm](https://img.shields.io/npm/v/repomix.svg?maxAge=1000)](https://www.npmjs.com/package/repomix)
 [![npm](https://img.shields.io/npm/d18m/repomix)](https://www.npmjs.com/package/repomix)
@@ -70,876 +69,465 @@ This repository is a maintained fork of [yamadashy/repomix](https://github.com/y
 [![GitHub stars](https://img.shields.io/github/stars/yeahhe365/repomix-local-webui?style=flat&logo=github)](https://github.com/yeahhe365/repomix-local-webui)
 [![Sponsors](https://img.shields.io/github/sponsors/yamadashy?logo=github)](https://github.com/sponsors/yamadashy)
 [![Discord](https://badgen.net/discord/online-members/wNYzTwZFku?icon=discord&label=discord)](https://discord.gg/wNYzTwZFku)
-
 [![DeepWiki](https://img.shields.io/badge/DeepWiki-yamadashy%2Frepomix-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAyCAYAAAAnWDnqAAAAAXNSR0IArs4c6QAAA05JREFUaEPtmUtyEzEQhtWTQyQLHNak2AB7ZnyXZMEjXMGeK/AIi+QuHrMnbChYY7MIh8g01fJoopFb0uhhEqqcbWTp06/uv1saEDv4O3n3dV60RfP947Mm9/SQc0ICFQgzfc4CYZoTPAswgSJCCUJUnAAoRHOAUOcATwbmVLWdGoH//PB8mnKqScAhsD0kYP3j/Yt5LPQe2KvcXmGvRHcDnpxfL2zOYJ1mFwrryWTz0advv1Ut4CJgf5uhDuDj5eUcAUoahrdY/56ebRWeraTjMt/00Sh3UDtjgHtQNHwcRGOC98BJEAEymycmYcWwOprTgcB6VZ5JK5TAJ+fXGLBm3FDAmn6oPPjR4rKCAoJCal2eAiQp2x0vxTPB3ALO2CRkwmDy5WohzBDwSEFKRwPbknEggCPB/imwrycgxX2NzoMCHhPkDwqYMr9tRcP5qNrMZHkVnOjRMWwLCcr8ohBVb1OMjxLwGCvjTikrsBOiA6fNyCrm8V1rP93iVPpwaE+gO0SsWmPiXB+jikdf6SizrT5qKasx5j8ABbHpFTx+vFXp9EnYQmLx02h1QTTrl6eDqxLnGjporxl3NL3agEvXdT0WmEost648sQOYAeJS9Q7bfUVoMGnjo4AZdUMQku50McDcMWcBPvr0SzbTAFDfvJqwLzgxwATnCgnp4wDl6Aa+Ax283gghmj+vj7feE2KBBRMW3FzOpLOADl0Isb5587h/U4gGvkt5v60Z1VLG8BhYjbzRwyQZemwAd6cCR5/XFWLYZRIMpX39AR0tjaGGiGzLVyhse5C9RKC6ai42ppWPKiBagOvaYk8lO7DajerabOZP46Lby5wKjw1HCRx7p9sVMOWGzb/vA1hwiWc6jm3MvQDTogQkiqIhJV0nBQBTU+3okKCFDy9WwferkHjtxib7t3xIUQtHxnIwtx4mpg26/HfwVNVDb4oI9RHmx5WGelRVlrtiw43zboCLaxv46AZeB3IlTkwouebTr1y2NjSpHz68WNFjHvupy3q8TFn3Hos2IAk4Ju5dCo8B3wP7VPr/FGaKiG+T+v+TQqIrOqMTL1VdWV1DdmcbO8KXBz6esmYWYKPwDL5b5FA1a0hwapHiom0r/cKaoqr+27/XcrS5UwSMbQAAAABJRU5ErkJggg==)](https://deepwiki.com/yamadashy/repomix)
 <!-- DeepWiki badge generated by https://deepwiki.ryoppippi.com/ -->
 
-📦 Repomix is a powerful tool that packs your entire repository into a single, AI-friendly file.  
-It is perfect for when you need to feed your codebase to Large Language Models (LLMs) or other AI tools like Claude,
-ChatGPT, DeepSeek, Perplexity, Gemini, Gemma, Llama, Grok, and more.
+📦 Repomix 是一个可以把整个仓库打包成单个 AI 友好文件的强大工具。<br>
+它非常适合在你需要把完整代码库提供给大型语言模型（LLM）或其他 AI 工具时使用，例如 Claude、ChatGPT、DeepSeek、Perplexity、Gemini、Gemma、Llama、Grok 等。
 
-Please consider sponsoring me.
+如果你主要依赖核心 Repomix CLI，也欢迎支持上游 Repomix 项目。
 
 [![Sponsor](.github/assets/github-like-sponsor-button.svg)](https://github.com/sponsors/yamadashy)
 
 [![Sponsors](https://cdn.jsdelivr.net/gh/yamadashy/sponsor-list/sponsors/sponsors.png)](https://github.com/sponsors/yamadashy)
 
-## 🏆 Open Source Awards Nomination
+## 中文文档导航
 
-We're honored! Repomix has been nominated for the **Powered by AI** category at the [JSNation Open Source Awards 2025](https://osawards.com/javascript/).
+这个仓库已经提供了一套中文文档，适合进一步查看细节：
 
-This wouldn't have been possible without all of you using and supporting Repomix. Thank you!
+- [入门指南](website/client/src/zh-cn/guide/index.md)
+- [本地部署（Docker）](website/client/src/zh-cn/guide/local-deployment.md)
+- [安装](website/client/src/zh-cn/guide/installation.md)
+- [基本用法](website/client/src/zh-cn/guide/usage.md)
+- [命令行选项](website/client/src/zh-cn/guide/command-line-options.md)
+- [配置](website/client/src/zh-cn/guide/configuration.md)
+- [输出格式](website/client/src/zh-cn/guide/output.md)
+- [MCP 服务器](website/client/src/zh-cn/guide/mcp-server.md)
+- [Claude Code 插件](website/client/src/zh-cn/guide/claude-code-plugins.md)
+- [Agent Skills 生成](website/client/src/zh-cn/guide/agent-skills-generation.md)
+- [Repomix Explorer Skill](website/client/src/zh-cn/guide/repomix-explorer-skill.md)
+- [提示词示例](website/client/src/zh-cn/guide/prompt-examples.md)
+- [GitHub Actions](website/client/src/zh-cn/guide/github-actions.md)
+- [安全性](website/client/src/zh-cn/guide/security.md)
+- [作为库使用](website/client/src/zh-cn/guide/development/using-repomix-as-a-library.md)
 
-## 🎉 New: Repomix Website & Discord Community!
+## 🏆 开源奖项提名
 
-- Try Repomix in your browser at [repomix.com](https://repomix.com/)
-- Join our [Discord Server](https://discord.gg/wNYzTwZFku) for support and discussion
+我们非常荣幸，Repomix 曾入围 [JSNation Open Source Awards 2025](https://osawards.com/javascript/) 的 **Powered by AI** 类别。
 
-**We look forward to seeing you there!**
+这离不开每一位使用和支持 Repomix 的朋友，感谢大家！
 
-## 🌟 Features
+## 🎉 网站与 Discord 社区
 
-- **AI-Optimized**: Formats your codebase in a way that's easy for AI to understand and process.
-- **Token Counting**: Provides token counts for each file and the entire repository, useful for LLM context limits.
-- **Simple to Use**: You need just one command to pack your entire repository.
-- **Customizable**: Easily configure what to include or exclude.
-- **Git-Aware**: Automatically respects your `.gitignore`, `.ignore`, and `.repomixignore` files.
-- **Security-Focused**: Incorporates [Secretlint](https://github.com/secretlint/secretlint) for robust security checks to detect and prevent inclusion of sensitive information.
-- **Code Compression**: The `--compress` option uses [Tree-sitter](https://github.com/tree-sitter/tree-sitter) to extract key code elements, reducing token count while preserving structure.
+- 在浏览器中体验 Repomix：[repomix.com](https://repomix.com/)
+- 加入 [Discord 社区](https://discord.gg/wNYzTwZFku) 获取帮助与交流
 
-## 🚀 Quick Start
+**期待在那里见到你。**
 
-### Using the CLI Tool `>_`
+## 🌟 核心功能
 
-You can try Repomix instantly in your project directory without installation:
+- **AI 优化输出**：将代码库整理为 AI 更容易理解和处理的格式
+- **Token 统计**：支持统计单个文件和整个仓库的 token 数量，便于适配上下文窗口
+- **简单易用**：通常只需一条命令即可打包整个仓库
+- **灵活可配置**：可精细控制包含、排除、输出格式与附加信息
+- **Git 感知**：自动遵循 `.gitignore`、`.ignore` 与 `.repomixignore`
+- **关注安全**：集成 [Secretlint](https://github.com/secretlint/secretlint) 检测潜在敏感信息
+- **代码压缩**：`--compress` 基于 [Tree-sitter](https://github.com/tree-sitter/tree-sitter) 提取关键结构，在保留轮廓的同时减少 token
+
+## 🚀 快速开始
+
+### 使用 CLI 工具 `>_`
+
+`repomix` npm 包和官方托管网站由上游 [yamadashy/repomix](https://github.com/yamadashy/repomix) 维护。这个 fork 保留了上游 CLI 的核心行为，同时把重点放在本地 Docker Web UI 工作流上。
+
+你可以在项目目录中直接体验，无需预先安装：
 
 ```bash
 npx repomix@latest
 ```
 
-Or install globally for repeated use:
+也可以选择全局安装，便于重复使用：
 
 ```bash
-# Install using npm
+# 使用 npm 安装
 npm install -g repomix
 
-# Alternatively using yarn
+# 或使用 yarn
 yarn global add repomix
 
-# Alternatively using bun
+# 或使用 bun
 bun add -g repomix
 
-# Alternatively using Homebrew (macOS/Linux)
+# 或使用 Homebrew（macOS/Linux）
 brew install repomix
 
-# Then run in any project directory
+# 然后在任意项目目录中运行
 repomix
 ```
 
-That's it! Repomix will generate a `repomix-output.xml` file in your current directory, containing your entire
-repository in an AI-friendly format.
+运行后，Repomix 会在当前目录生成一个 `repomix-output.xml` 文件，其中包含以 AI 友好格式整理的整个仓库内容。
 
-You can then send this file to an AI assistant with a prompt like:
+你可以把这个文件发送给 AI 助手，并附上一段类似提示词：
 
-```
-This file contains all the files in the repository combined into one.
-I want to refactor the code, so please review it first.
+```text
+这个文件包含了仓库中所有文件合并后的内容。
+我想重构这份代码，请先帮我做一次整体审查。
 ```
 
 ![Repomix File Usage 1](website/client/src/public/images/docs/repomix-file-usage-1.png)
 
-When you propose specific changes, the AI might be able to generate code accordingly. With features like Claude's
-Artifacts, you could potentially output multiple files, allowing for the generation of multiple interdependent pieces of
-code.
+当你进一步提出具体修改需求时，AI 通常就能基于这份完整上下文生成更准确的代码。像 Claude Artifacts 这类功能，甚至还能帮助你同时输出多个互相关联的文件。
 
 ![Repomix File Usage 2](website/client/src/public/images/docs/repomix-file-usage-2.png)
 
-Happy coding! 🚀
+### 使用本地 Docker Web UI 🐳
 
-### Using The Website 🌐
+这个 fork 最推荐的使用方式，是在本机通过 Docker 启动增强版 Web UI。
 
-Want to try it quickly? Visit the official website at [repomix.com](https://repomix.com). Simply enter your repository
-name, fill in any optional details, and click the **Pack** button to see your generated output.
+适合场景：
 
-#### Available Options
+- 希望使用中文界面
+- 需要直接处理本地绝对路径，例如 `/Users/jones/Documents/Code/project`
+- 想通过浏览器操作，但不希望把代码上传到第三方服务
 
-The website offers several convenient features:
+在仓库根目录运行：
 
-- Customizable output format (XML, Markdown, or Plain Text)
-- Instant token count estimation
-- Much more!
+```bash
+docker compose -f website/compose.docker.yml up --build
+```
 
-### Using The Browser Extension 🧩
+启动后默认可访问：
 
-Get instant access to Repomix directly from any GitHub repository! Our Chrome extension adds a convenient "Repomix" button to GitHub repository pages.
+- 前端：`http://localhost:5173`
+- 后端健康检查：`http://localhost:8080/health`
+
+默认本地部署配置会启用：
+
+- `ENABLE_LOCAL_PATH_MODE=true`
+- `LOCAL_PATH_ALLOWLIST=/Users`
+- 端口绑定到 `127.0.0.1`
+- 宿主机目录只读挂载
+
+这意味着：
+
+- Web UI 可以浏览允许目录中的文件夹
+- 后端只会读取白名单目录中的内容
+- 默认只允许本机访问
+- 不会修改宿主机文件
+
+更多细节请查看 [本地部署说明](website/client/src/zh-cn/guide/local-deployment.md)。
+
+### 使用官方网站 🌐
+
+如果你只想快速体验，可以直接访问 [repomix.com](https://repomix.com)。输入仓库地址、填写可选项，然后点击 **Pack** 即可生成输出。
+
+网站支持：
+
+- 输出格式切换（XML、Markdown、JSON、纯文本）
+- 即时 token 数估算
+- 远程仓库处理
+- 其他更多便捷能力
+
+### 使用浏览器扩展 🧩
+
+Repomix 提供浏览器扩展，可直接在 GitHub 仓库页面加入 “Repomix” 按钮：
 
 ![Repomix Browser Extension](website/client/src/public/images/docs/browser-extension.png)
 
-#### Install
-- Chrome Extension: [Repomix - Chrome Web Store](https://chromewebstore.google.com/detail/repomix/fimfamikepjgchehkohedilpdigcpkoa)
-- Firefox Add-on: [Repomix - Firefox Add-ons](https://addons.mozilla.org/firefox/addon/repomix/)
+- Chrome 扩展：[Repomix - Chrome Web Store](https://chromewebstore.google.com/detail/repomix/fimfamikepjgchehkohedilpdigcpkoa)
+- Firefox 扩展：[Repomix - Firefox Add-ons](https://addons.mozilla.org/firefox/addon/repomix/)
 
-#### Features
-- One-click access to Repomix for any GitHub repository
-- More exciting features coming soon!
+### 使用 VSCode 扩展 ⚡️
 
-### Using The VSCode Extension ⚡️
+社区维护的 [Repomix Runner](https://marketplace.visualstudio.com/items?itemName=DorianMassoulier.repomix-runner) 可以让你在 VSCode 中直接运行 Repomix。
 
-A community-maintained VSCode extension called [Repomix Runner](https://marketplace.visualstudio.com/items?itemName=DorianMassoulier.repomix-runner) (created by [massdo](https://github.com/massdo)) lets you run Repomix right inside your editor with just a few clicks. Run it on any folder, manage outputs seamlessly, and control everything through VSCode's intuitive interface. 
+它支持：
 
-Want your output as a file or just the content? Need automatic cleanup? This extension has you covered. Plus, it works smoothly with your existing repomix.config.json.
+- 在任意文件夹上快速执行打包
+- 便捷管理输出文件
+- 与现有 `repomix.config.json` 配合工作
 
-Try it now on the [VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=DorianMassoulier.repomix-runner)!
-Source code is available on [GitHub](https://github.com/massdo/repomix-runner).
+扩展详情和源码：
 
-### Alternative Tools 🛠️
+- Marketplace：[Repomix Runner](https://marketplace.visualstudio.com/items?itemName=DorianMassoulier.repomix-runner)
+- GitHub：[massdo/repomix-runner](https://github.com/massdo/repomix-runner)
 
-If you're using Python, you might want to check out `Gitingest`, which is better suited for Python ecosystem and data
-science workflows:
-https://github.com/cyclotruc/gitingest
+### 其他工具 🛠️
 
-## 📊 Usage
+如果你主要在 Python 生态中工作，也可以看看更偏向 Python / 数据科学场景的 `Gitingest`：
 
-To pack your entire repository:
+[cyclotruc/gitingest](https://github.com/cyclotruc/gitingest)
+
+## 📊 常见用法
+
+### 打包整个仓库
 
 ```bash
 repomix
 ```
 
-To pack a specific directory:
+### 打包指定目录
 
 ```bash
 repomix path/to/directory
 ```
 
-To pack specific files or directories
-using [glob patterns](https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#pattern-syntax):
+### 仅包含指定文件
+
+使用 [glob 模式](https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#pattern-syntax)：
 
 ```bash
 repomix --include "src/**/*.ts,**/*.md"
 ```
 
-To exclude specific files or directories:
+### 排除指定文件或目录
 
 ```bash
 repomix --ignore "**/*.log,tmp/"
 ```
 
-To pack a remote repository:
+### 打包远程仓库
 
 ```bash
 repomix --remote https://github.com/yamadashy/repomix
 
-# You can also use GitHub shorthand:
+# 也支持 GitHub 简写
 repomix --remote yamadashy/repomix
 
-# You can specify the branch name, tag, or commit hash:
+# 指定分支、标签或提交
 repomix --remote https://github.com/yamadashy/repomix --remote-branch main
-
-# Or use a specific commit hash:
 repomix --remote https://github.com/yamadashy/repomix --remote-branch 935b695
 
-# Another convenient way is specifying the branch's URL
+# 直接使用分支 URL
 repomix --remote https://github.com/yamadashy/repomix/tree/main
 
-# Commit's URL is also supported
+# 也支持提交 URL
 repomix --remote https://github.com/yamadashy/repomix/commit/836abcd7335137228ad77feb28655d85712680f1
-
 ```
 
-To pack files from a file list (pipe via stdin):
+> [!NOTE]
+> 出于安全考虑，远程仓库中的 `repomix.config.*` 默认不会被加载。如果你确认该仓库可信，可以使用 `--remote-trust-config` 或设置 `REPOMIX_REMOTE_TRUST_CONFIG=true`。
+>
+> 当 `--remote` 与 `--config` 一起使用时，`--config` 需要传入绝对路径，例如 `--config /home/user/repomix.config.json`。
+
+### 通过 stdin 传入文件列表
+
+`--stdin` 允许你把文件路径列表通过管道传给 Repomix，适合按条件精确挑选文件。
 
 ```bash
-# Using find command
+# 使用 find
 find src -name "*.ts" -type f | repomix --stdin
 
-# Using git to get tracked files
+# 使用 git 获取已跟踪文件
 git ls-files "*.ts" | repomix --stdin
 
-# Using grep to find files containing specific content
+# 使用 grep 查找包含指定内容的文件
 grep -l "TODO" **/*.ts | repomix --stdin
 
-# Using ripgrep to find files with specific content
+# 使用 ripgrep 查找包含指定内容的文件
 rg -l "TODO|FIXME" --type ts | repomix --stdin
 
-# Using ripgrep (rg) to find files
+# 使用 ripgrep 查找文件
 rg --files --type ts | repomix --stdin
 
-# Using sharkdp/fd to find files
+# 使用 fd
 fd -e ts | repomix --stdin
 
-# Using fzf to select from all files
+# 使用 fzf 从所有文件中交互选择
 fzf -m | repomix --stdin
 
-# Interactive file selection with fzf
+# 交互式组合使用
 find . -name "*.ts" -type f | fzf -m | repomix --stdin
 
-# Using ls with glob patterns
+# 使用 ls 和 glob
 ls src/**/*.ts | repomix --stdin
 
-# From a file containing file paths
+# 从文件读取路径列表
 cat file-list.txt | repomix --stdin
 
-# Direct input with echo
+# 直接输入
 echo -e "src/index.ts\nsrc/utils.ts" | repomix --stdin
 ```
 
-The `--stdin` option allows you to pipe a list of file paths to Repomix, giving you ultimate flexibility in selecting which files to pack.
+使用 `--stdin` 时：
 
-When using `--stdin`, the specified files are effectively added to the include patterns. This means that the normal include and ignore behavior still applies - files specified via stdin will still be excluded if they match ignore patterns.
+- 文件路径可以是相对路径，也可以是绝对路径
+- Repomix 会自动进行路径解析与去重
+- 传入的文件会等效加入 include 范围
+- 但 ignore 规则仍然生效，匹配忽略模式的文件依旧会被排除
 
-> [!NOTE]
-> When using `--stdin`, file paths can be relative or absolute, and Repomix will automatically handle path resolution and deduplication.
-
-To include git logs in the output:
+### 包含 Git 日志与差异
 
 ```bash
-# Include git logs with default count (50 commits)
+# 包含 git 日志（默认最近 50 次提交）
 repomix --include-logs
 
-# Include git logs with specific commit count
+# 指定提交数量
 repomix --include-logs --include-logs-count 10
 
-# Combine with diffs for comprehensive git context
+# 同时包含工作区 diff
 repomix --include-logs --include-diffs
 ```
 
-The git logs include commit dates, messages, and file paths for each commit, providing valuable context for AI analysis of code evolution and development patterns.
+这能为 AI 提供更多代码演进背景，例如提交时间、提交说明与受影响文件。
 
-To compress the output:
+### 压缩输出
 
 ```bash
 repomix --compress
 
-# You can also use it with remote repositories:
+# 也可用于远程仓库
 repomix --remote yamadashy/repomix --compress
 ```
 
-To initialize a new configuration file (`repomix.config.json`):
+`--compress` 会基于 Tree-sitter 做智能提取，重点保留函数、类、接口等结构信息，同时尽量缩减实现细节对应的 token。
 
-```bash
-repomix --init
-```
-
-Once you have generated the packed file, you can use it with Generative AI tools like ChatGPT, DeepSeek, Perplexity, Gemini, Gemma, Llama, Grok, and more.
-
-### Docker Usage 🐳
-
-You can also run Repomix using Docker.  
-This is useful if you want to run Repomix in an isolated environment or prefer using containers.
-
-Basic usage (current directory):
-
-```bash
-docker run -v .:/app -it --rm ghcr.io/yamadashy/repomix
-```
-
-To pack a specific directory:
-
-```bash
-docker run -v .:/app -it --rm ghcr.io/yamadashy/repomix path/to/directory
-```
-
-Process a remote repository and output to a `output` directory:
-
-```bash
-docker run -v ./output:/app -it --rm ghcr.io/yamadashy/repomix --remote https://github.com/yamadashy/repomix
-```
-
-### Prompt Examples
-
-Once you have generated the packed file with Repomix, you can use it with AI tools like ChatGPT, DeepSeek, Perplexity, Gemini, Gemma, Llama, Grok, and more.
-Here are some example prompts to get you started:
-
-#### Code Review and Refactoring
-
-For a comprehensive code review and refactoring suggestions:
-
-```
-This file contains my entire codebase. Please review the overall structure and suggest any improvements or refactoring opportunities, focusing on maintainability and scalability.
-```
-
-#### Documentation Generation
-
-To generate project documentation:
-
-```
-Based on the codebase in this file, please generate a detailed README.md that includes an overview of the project, its main features, setup instructions, and usage examples.
-```
-
-#### Test Case Generation
-
-For generating test cases:
-
-```
-Analyze the code in this file and suggest a comprehensive set of unit tests for the main functions and classes. Include edge cases and potential error scenarios.
-```
-
-#### Code Quality Assessment
-
-Evaluate code quality and adherence to best practices:
-
-```
-Review the codebase for adherence to coding best practices and industry standards. Identify areas where the code could be improved in terms of readability, maintainability, and efficiency. Suggest specific changes to align the code with best practices.
-```
-
-#### Library Overview
-
-Get a high-level understanding of the library
-
-```
-This file contains the entire codebase of library. Please provide a comprehensive overview of the library, including its main purpose, key features, and overall architecture.
-```
-
-Feel free to modify these prompts based on your specific needs and the capabilities of the AI tool you're using.
-
-### Community Discussion
-
-Check out our [community discussion](https://github.com/yamadashy/repomix/discussions/154) where users share:
-
-- Which AI tools they're using with Repomix
-- Effective prompts they've discovered
-- How Repomix has helped them
-- Tips and tricks for getting the most out of AI code analysis
-
-Feel free to join the discussion and share your own experiences! Your insights could help others make better use of
-Repomix.
-
-### Output File Format
-
-Repomix generates a single file with clear separators between different parts of your codebase.  
-To enhance AI comprehension, the output file begins with an AI-oriented explanation, making it easier for AI models to
-understand the context and structure of the packed repository.
-
-#### XML Format (default)
-
-The XML format structures the content in a hierarchical manner:
-
-```xml
-This file is a merged representation of the entire codebase, combining all repository files into a single document.
-
-<file_summary>
-  (Metadata and usage AI instructions)
-</file_summary>
-
-<directory_structure>
-src/
-cli/
-cliOutput.ts
-index.ts
-
-(...remaining directories)
-</directory_structure>
-
-<files>
-<file path="src/index.js">
-  // File contents here
-</file>
-
-(...remaining files)
-</files>
-
-<instruction>
-(Custom instructions from `output.instructionFilePath`)
-</instruction>
-```
-
-For those interested in the potential of XML tags in AI contexts:  
-https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/use-xml-tags
-
-> When your prompts involve multiple components like context, instructions, and examples, XML tags can be a
-> game-changer. They help Claude parse your prompts more accurately, leading to higher-quality outputs.
-
-This means that the XML output from Repomix is not just a different format, but potentially a more effective way to feed
-your codebase into AI systems for analysis, code review, or other tasks.
-
-#### Markdown Format
-
-To generate output in Markdown format, use the `--style markdown` option:
-
-```bash
-repomix --style markdown
-```
-
-The Markdown format structures the content in a hierarchical manner:
-
-````markdown
-This file is a merged representation of the entire codebase, combining all repository files into a single document.
-
-# File Summary
-
-(Metadata and usage AI instructions)
-
-# Repository Structure
-
-```
-src/
-  cli/
-    cliOutput.ts
-    index.ts
-```
-
-(...remaining directories)
-
-# Repository Files
-
-## File: src/index.js
-
-```
-// File contents here
-```
-
-(...remaining files)
-
-# Instruction
-
-(Custom instructions from `output.instructionFilePath`)
-````
-
-This format provides a clean, readable structure that is both human-friendly and easily parseable by AI systems.
-
-#### JSON Format
-
-To generate output in JSON format, use the `--style json` option:
-
-```bash
-repomix --style json
-```
-
-The JSON format structures the content as a hierarchical JSON object with camelCase property names:
-
-```json
-{
-  "fileSummary": {
-    "generationHeader": "This file is a merged representation of the entire codebase, combined into a single document by Repomix.",
-    "purpose": "This file contains a packed representation of the entire repository's contents...",
-    "fileFormat": "The content is organized as follows...",
-    "usageGuidelines": "- This file should be treated as read-only...",
-    "notes": "- Some files may have been excluded based on .gitignore, .ignore, and .repomixignore rules..."
-  },
-  "userProvidedHeader": "Custom header text if specified",
-  "directoryStructure": "src/\n  cli/\n    cliOutput.ts\n    index.ts\n  config/\n    configLoader.ts",
-  "files": {
-    "src/index.js": "// File contents here",
-    "src/utils.js": "// File contents here"
-  },
-  "instruction": "Custom instructions from instructionFilePath"
-}
-```
-
-This format is ideal for:
-- **Programmatic processing**: Easy to parse and manipulate with JSON libraries
-- **API integration**: Direct consumption by web services and applications  
-- **AI tool compatibility**: Structured format for machine learning and AI systems
-- **Data analysis**: Straightforward extraction of specific information using tools like `jq`
-
-##### Working with JSON Output Using `jq`
-
-The JSON format makes it easy to extract specific information programmatically:
-
-```bash
-# List all file paths
-cat repomix-output.json | jq -r '.files | keys[]'
-
-# Count total number of files
-cat repomix-output.json | jq '.files | keys | length'
-
-# Extract specific file content
-cat repomix-output.json | jq -r '.files["README.md"]'
-cat repomix-output.json | jq -r '.files["src/index.js"]'
-
-# Find files by extension
-cat repomix-output.json | jq -r '.files | keys[] | select(endswith(".ts"))'
-
-# Get files containing specific text
-cat repomix-output.json | jq -r '.files | to_entries[] | select(.value | contains("function")) | .key'
-
-# Extract directory structure
-cat repomix-output.json | jq -r '.directoryStructure'
-
-# Get file summary information
-cat repomix-output.json | jq '.fileSummary.purpose'
-cat repomix-output.json | jq -r '.fileSummary.generationHeader'
-
-# Extract user-provided header (if exists)
-cat repomix-output.json | jq -r '.userProvidedHeader // "No header provided"'
-
-# Create a file list with sizes
-cat repomix-output.json | jq -r '.files | to_entries[] | "\(.key): \(.value | length) characters"'
-```
-
-#### Plain Text Format
-
-To generate output in plain text format, use the `--style plain` option:
-
-```bash
-repomix --style plain
-```
-
-```text
-This file is a merged representation of the entire codebase, combining all repository files into a single document.
-
-================================================================
-File Summary
-================================================================
-(Metadata and usage AI instructions)
-
-================================================================
-Directory Structure
-================================================================
-src/
-  cli/
-    cliOutput.ts
-    index.ts
-  config/
-    configLoader.ts
-
-(...remaining directories)
-
-================================================================
-Files
-================================================================
-
-================
-File: src/index.js
-================
-// File contents here
-
-================
-File: src/utils.js
-================
-// File contents here
-
-(...remaining files)
-
-================================================================
-Instruction
-================================================================
-(Custom instructions from `output.instructionFilePath`)
-```
-
-### Command Line Options
-
-#### Basic Options
-- `-v, --version`: Show version information and exit
-
-#### CLI Input/Output Options
-
-| Option | Description |
-|--------|-------------|
-| `--verbose` | Enable detailed debug logging (shows file processing, token counts, and configuration details) |
-| `--quiet` | Suppress all console output except errors (useful for scripting) |
-| `--stdout` | Write packed output directly to stdout instead of a file (suppresses all logging) |
-| `--stdin` | Read file paths from stdin, one per line (specified files are processed directly) |
-| `--copy` | Copy the generated output to system clipboard after processing |
-| `--token-count-tree [threshold]` | Show file tree with token counts; optional threshold to show only files with ≥N tokens (e.g., `--token-count-tree 100`) |
-| `--top-files-len <number>` | Number of largest files to show in summary (default: `5`) |
-
-#### Repomix Output Options
-
-| Option | Description |
-|--------|-------------|
-| `-o, --output <file>` | Output file path (default: `repomix-output.xml`, use `"-"` for stdout) |
-| `--style <style>` | Output format: `xml`, `markdown`, `json`, or `plain` (default: `xml`) |
-| `--parsable-style` | Escape special characters to ensure valid XML/Markdown (needed when output contains code that breaks formatting) |
-| `--compress` | Extract essential code structure (classes, functions, interfaces) using Tree-sitter parsing |
-| `--output-show-line-numbers` | Prefix each line with its line number in the output |
-| `--no-file-summary` | Omit the file summary section from output |
-| `--no-directory-structure` | Omit the directory tree visualization from output |
-| `--no-files` | Generate metadata only without file contents (useful for repository analysis) |
-| `--remove-comments` | Strip all code comments before packing |
-| `--remove-empty-lines` | Remove blank lines from all files |
-| `--truncate-base64` | Truncate long base64 data strings to reduce output size |
-| `--header-text <text>` | Custom text to include at the beginning of the output |
-| `--instruction-file-path <path>` | Path to file containing custom instructions to include in output |
-| `--split-output <size>` | Split output into multiple numbered files (e.g., `repomix-output.1.xml`); size like `500kb`, `2mb`, or `1.5mb` |
-| `--include-empty-directories` | Include folders with no files in directory structure |
-| `--include-full-directory-structure` | Show complete directory tree in output, including files not matched by `--include` patterns |
-| `--no-git-sort-by-changes` | Don't sort files by git change frequency (default: most changed files first) |
-| `--include-diffs` | Add git diff section showing working tree and staged changes |
-| `--include-logs` | Add git commit history with messages and changed files |
-| `--include-logs-count <count>` | Number of recent commits to include with `--include-logs` (default: `50`) |
-
-#### File Selection Options
-
-| Option | Description |
-|--------|-------------|
-| `--include <patterns>` | Include only files matching these glob patterns (comma-separated, e.g., `"src/**/*.js,*.md"`) |
-| `-i, --ignore <patterns>` | Additional patterns to exclude (comma-separated, e.g., `"*.test.js,docs/**"`) |
-| `--no-gitignore` | Don't use `.gitignore` rules for filtering files |
-| `--no-dot-ignore` | Don't use `.ignore` rules for filtering files |
-| `--no-default-patterns` | Don't apply built-in ignore patterns (`node_modules`, `.git`, build dirs, etc.) |
-
-#### Remote Repository Options
-
-| Option | Description |
-|--------|-------------|
-| `--remote <url>` | Clone and pack a remote repository (GitHub URL or `user/repo` format) |
-| `--remote-branch <name>` | Specific branch, tag, or commit to use (default: repository's default branch) |
-| `--remote-trust-config` | Trust and load config files from remote repositories (disabled by default for security) |
-
-#### Configuration Options
-
-| Option | Description |
-|--------|-------------|
-| `-c, --config <path>` | Use custom config file instead of `repomix.config.json` |
-| `--init` | Create a new `repomix.config.json` file with defaults |
-| `--global` | With `--init`, create config in home directory instead of current directory |
-
-#### Security Options
-- `--no-security-check`: Skip scanning for sensitive data like API keys and passwords
-
-#### Token Count Options
-- `--token-count-encoding <encoding>`: Tokenizer model for counting: o200k_base (GPT-4o), cl100k_base (GPT-3.5/4), etc. (default: o200k_base)
-
-#### MCP
-- `--mcp`: Run as Model Context Protocol server for AI tool integration
-
-#### Agent Skills Generation
-
-| Option | Description |
-|--------|-------------|
-| `--skill-generate [name]` | Generate Claude Agent Skills format output to `.claude/skills/<name>/` directory (name auto-generated if omitted) |
-| `--skill-output <path>` | Specify skill output directory path directly (skips location prompt) |
-| `-f, --force` | Skip all confirmation prompts (e.g., skill directory overwrite) |
-
-#### Examples
-
-```bash
-# Basic usage
-repomix
-
-# Custom output
-repomix -o output.xml --style xml
-
-# Output to stdout
-repomix --stdout > custom-output.txt
-
-# Send output to stdout, then pipe into another command (for example, simonw/llm)
-repomix --stdout | llm "Please explain what this code does."
-
-# Custom output with compression
-repomix --compress
-
-# Process specific files
-repomix --include "src/**/*.ts" --ignore "**/*.test.ts"
-
-# Split output into multiple files (max size per part)
-repomix --split-output 20mb
-
-# Remote repository with branch
-repomix --remote https://github.com/user/repo/tree/main
-
-# Remote repository with commit
-repomix --remote https://github.com/user/repo/commit/836abcd7335137228ad77feb28655d85712680f1
-
-# Remote repository with shorthand
-repomix --remote user/repo
-```
-
-### Updating Repomix
-
-To update a globally installed Repomix:
-
-```bash
-# Using npm
-npm update -g repomix
-
-# Using yarn
-yarn global upgrade repomix
-
-# Using bun
-bun update -g repomix
-```
-
-Using `npx repomix` is generally more convenient as it always uses the latest version.
-
-### Remote Repository Processing
-
-Repomix supports processing remote Git repositories without the need for manual cloning. This feature allows you to
-quickly analyze any public Git repository with a single command.
-
-To process a remote repository, use the `--remote` option followed by the repository URL:
-
-```bash
-repomix --remote https://github.com/yamadashy/repomix
-```
-
-You can also use GitHub's shorthand format:
-
-```bash
-repomix --remote yamadashy/repomix
-```
-
-You can specify the branch name, tag, or commit hash:
-
-```bash
-# Using --remote-branch option
-repomix --remote https://github.com/yamadashy/repomix --remote-branch main
-
-# Using branch's URL
-repomix --remote https://github.com/yamadashy/repomix/tree/main
-```
-
-Or use a specific commit hash:
-
-```bash
-# Using --remote-branch option
-repomix --remote https://github.com/yamadashy/repomix --remote-branch 935b695
-
-# Using commit's URL
-repomix --remote https://github.com/yamadashy/repomix/commit/836abcd7335137228ad77feb28655d85712680f1
-```
-
-> [!NOTE]
-> For security, config files (`repomix.config.*`) in remote repositories are not loaded by default. This prevents untrusted repositories from executing code via config files. Your global config and CLI options are still applied. To trust a remote repository's config, use `--remote-trust-config` or set `REPOMIX_REMOTE_TRUST_CONFIG=true`.
->
-> When using `--config` with `--remote`, an absolute path is required (e.g., `--config /home/user/repomix.config.json`).
-
-### Code Compression
-
-The `--compress` option utilizes [Tree-sitter](https://github.com/tree-sitter/tree-sitter) to perform intelligent code extraction, focusing on essential function and class signatures while removing implementation details. This can help reduce token count while retaining important structural information.
-
-```bash
-repomix --compress
-```
-
-For example, this code:
-
-```typescript
-import { ShoppingItem } from './shopping-item';
-
-/**
- * Calculate the total price of shopping items
- */
-const calculateTotal = (
-  items: ShoppingItem[]
-) => {
-  let total = 0;
-  for (const item of items) {
-    total += item.price * item.quantity;
-  }
-  return total;
-}
-
-// Shopping item interface
-interface Item {
-  name: string;
-  price: number;
-  quantity: number;
-}
-```
-
-Will be compressed to:
-
-```typescript
-import { ShoppingItem } from './shopping-item';
-⋮----
-/**
- * Calculate the total price of shopping items
- */
-const calculateTotal = (
-  items: ShoppingItem[]
-) => {
-⋮----
-// Shopping item interface
-interface Item {
-  name: string;
-  price: number;
-  quantity: number;
-}
-```
-
-> [!NOTE]
-> This is an experimental feature that we'll be actively improving based on user feedback and real-world usage
-
-### Token Count Optimization
-
-Understanding your codebase's token distribution is crucial for optimizing AI interactions. Use the `--token-count-tree` option to visualize token usage across your project:
+### 显示 Token 数树
 
 ```bash
 repomix --token-count-tree
+
+# 仅显示大于等于 1000 token 的文件或目录
+repomix --token-count-tree 1000
 ```
 
-This displays a hierarchical view of your codebase with token counts:
+这有助于你：
 
-```
-🔢 Token Count Tree:
-────────────────────
-└── src/ (70,925 tokens)
-    ├── cli/ (12,714 tokens)
-    │   ├── actions/ (7,546 tokens)
-    │   └── reporters/ (990 tokens)
-    └── core/ (41,600 tokens)
-        ├── file/ (10,098 tokens)
-        └── output/ (5,808 tokens)
-```
+- 找出超大文件
+- 更有针对性地设计 `--include` / `--ignore`
+- 决定是否需要 `--compress`
+- 为不同 AI 工具准备合适大小的上下文
 
-You can also set a minimum token threshold to focus on larger files:
+### 拆分大型输出
 
-```bash
-repomix --token-count-tree 1000  # Only show files/directories with 1000+ tokens
-```
-
-This helps you:
-- **Identify token-heavy files** that might exceed AI context limits
-- **Optimize file selection** using `--include` and `--ignore` patterns  
-- **Plan compression strategies** by targeting the largest contributors
-- **Balance content vs. context** when preparing code for AI analysis
-
-### Splitting Output for Large Codebases
-
-When working with large codebases, the packed output may exceed file size limits imposed by some AI tools (e.g., Google AI Studio's 1MB limit). Use `--split-output` to automatically split the output into multiple files:
+当代码库较大时，可以使用 `--split-output` 自动把输出拆成多个文件：
 
 ```bash
 repomix --split-output 1mb
 ```
 
-This generates numbered files like:
+生成结果类似：
+
 - `repomix-output.1.xml`
 - `repomix-output.2.xml`
 - `repomix-output.3.xml`
 
-Size can be specified with units: `500kb`, `1mb`, `2mb`, `1.5mb`, etc. Decimal values are supported.
+支持的大小格式包括 `500kb`、`1mb`、`2mb`、`1.5mb` 等。
 
 > [!NOTE]
-> Files are grouped by top-level directory to maintain context. A single file or directory will never be split across multiple output files.
+> 为了保持上下文连续性，Repomix 会按顶级目录分组，不会把单个文件或目录拆散到多个输出文件中。
 
-### MCP Server Integration
+### 初始化配置文件
 
-Repomix supports the [Model Context Protocol (MCP)](https://modelcontextprotocol.io), allowing AI assistants to directly interact with your codebase. When run as an MCP server, Repomix provides tools that enable AI assistants to package local or remote repositories for analysis without requiring manual file preparation.
+```bash
+repomix --init
+```
+
+更多选项与示例，请查看 [基本用法](website/client/src/zh-cn/guide/usage.md) 与 [命令行选项](website/client/src/zh-cn/guide/command-line-options.md)。
+
+## 💡 提示词示例
+
+打包完成后，你可以将结果交给 ChatGPT、Claude、DeepSeek、Perplexity、Gemini、Gemma、Llama、Grok 等生成式 AI 工具。下面是一些常见提示词：
+
+### 代码审查与重构
+
+```text
+这个文件包含了我的整个代码库。请从可维护性、可扩展性和整体结构出发，对它做一次完整审查，并给出重构建议。
+```
+
+### 生成项目文档
+
+```text
+请根据这个文件中的代码库内容，生成一份详细的 README.md，包括项目概览、主要功能、安装方式和使用示例。
+```
+
+### 生成测试用例
+
+```text
+请分析这份代码，并为主要函数和类设计一套完整的单元测试，包含边界情况和潜在错误场景。
+```
+
+### 评估代码质量
+
+```text
+请检查这份代码是否符合常见编码最佳实践与行业标准，指出在可读性、可维护性和效率方面还能改进的地方，并给出具体建议。
+```
+
+### 快速理解一个库
+
+```text
+这个文件包含了整个库的代码。请给我一份高层概览，说明它的目标、核心功能和整体架构。
+```
+
+更多示例请参考 [提示词示例文档](website/client/src/zh-cn/guide/prompt-examples.md)。
+
+## 📄 输出格式
+
+Repomix 会生成一个单文件输出，并在文件中清晰分隔代码库的不同部分。为了便于 AI 理解，输出开头还会包含面向 AI 的说明文字。
+
+### XML（默认）
+
+```bash
+repomix --style xml
+```
+
+XML 采用分层结构表达目录树、文件内容与附加说明，通常是最适合 AI 解析的默认格式。
+
+### Markdown
+
+```bash
+repomix --style markdown
+```
+
+Markdown 更方便人类直接阅读，也适合在支持 Markdown 的 AI 工具里使用。
+
+### JSON
+
+```bash
+repomix --style json
+```
+
+JSON 适合程序化处理、API 集成、`jq` 检索和结构化分析。
+
+常见 `jq` 示例：
+
+```bash
+# 列出所有文件路径
+cat repomix-output.json | jq -r '.files | keys[]'
+
+# 统计文件总数
+cat repomix-output.json | jq '.files | keys | length'
+
+# 提取某个文件内容
+cat repomix-output.json | jq -r '.files["README.md"]'
+```
+
+### 纯文本
+
+```bash
+repomix --style plain
+```
+
+纯文本格式适合对格式要求较低、但希望保持可读性的场景。
+
+更多格式细节请参考 [输出格式文档](website/client/src/zh-cn/guide/output.md)。
+
+## 🔌 MCP 服务器集成
+
+Repomix 支持 [Model Context Protocol (MCP)](https://modelcontextprotocol.io)，允许 AI 助手直接与你的代码库交互，无需先手动准备打包文件。
+
+启动 MCP 服务器：
 
 ```bash
 repomix --mcp
 ```
 
-#### Configuring MCP Servers
+### MCP 配置示例
 
-To use Repomix as an MCP server with AI assistants like Claude, you need to configure the MCP settings:
+**VS Code：**
 
-**For VS Code:**
+```bash
+code --add-mcp '{"name":"repomix","command":"npx","args":["-y","repomix","--mcp"]}'
+```
 
-You can install the Repomix MCP server in VS Code using one of these methods:
+**VS Code Insiders：**
 
-1. **Using the Install Badge:**
+```bash
+code-insiders --add-mcp '{"name":"repomix","command":"npx","args":["-y","repomix","--mcp"]}'
+```
 
-  [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=repomix&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22repomix%22%2C%22--mcp%22%5D%7D)
-  [![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=repomix&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22repomix%22%2C%22--mcp%22%5D%7D&quality=insiders)
+**Cline / Claude Desktop / 类似客户端配置：**
 
-2. **Using the Command Line:**
-
-  ```bash
-  code --add-mcp '{"name":"repomix","command":"npx","args":["-y","repomix","--mcp"]}'
-  ```
-
-  For VS Code Insiders:
-  ```bash
-  code-insiders --add-mcp '{"name":"repomix","command":"npx","args":["-y","repomix","--mcp"]}'
-  ```
-
-**For Cline (VS Code extension):**
-
-Edit the `cline_mcp_settings.json` file:
 ```json
 {
   "mcpServers": {
@@ -955,27 +543,15 @@ Edit the `cline_mcp_settings.json` file:
 }
 ```
 
-**For Cursor:**
-
-In Cursor, add a new MCP server from `Cursor Settings` > `MCP` > `+ Add new global MCP server` with a configuration similar to Cline.
-
-**For Claude Desktop:**
-
-Edit the `claude_desktop_config.json` file with similar configuration to Cline's config.
-
-**For Claude Code:**
-
-To configure Repomix as an MCP server in [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), use the following command:
+**Claude Code：**
 
 ```bash
 claude mcp add repomix -- npx -y repomix --mcp
 ```
 
-Alternatively, you can use the official Repomix plugins (see [Claude Code Plugins](#claude-code-plugins) section below).
+或者也可以直接使用官方 Repomix 插件，见下文的 [Claude Code 插件](#claude-code-plugins)。
 
-**Using Docker instead of npx:**
-
-You can use Docker as an alternative to npx for running Repomix as an MCP server:
+**Docker 方式：**
 
 ```json
 {
@@ -994,333 +570,167 @@ You can use Docker as an alternative to npx for running Repomix as an MCP server
 }
 ```
 
-Once configured, your AI assistant can directly use Repomix's capabilities to analyze codebases without manual file preparation, making code analysis workflows more efficient.
+### MCP 提供的工具
 
-#### Available MCP Tools
+当作为 MCP 服务器运行时，Repomix 主要提供以下工具：
 
-When running as an MCP server, Repomix provides the following tools:
+1. `pack_codebase`
+   将本地目录打包成适合 AI 分析的输出。
+2. `attach_packed_output`
+   直接附加已经生成好的 Repomix 输出文件。
+3. `pack_remote_repository`
+   拉取并打包 GitHub 远程仓库。
+4. `read_repomix_output`
+   按行读取 Repomix 输出文件，适合大文件分段浏览。
+5. `grep_repomix_output`
+   使用 JavaScript RegExp 搜索打包输出中的内容。
+6. `file_system_read_file`
+   通过绝对路径安全读取本地文件，内置敏感信息检查。
+7. `file_system_read_directory`
+   安全列出目录内容，帮助 AI 浏览本地项目结构。
 
-1. **pack_codebase**: Package a local code directory into a consolidated XML file for AI analysis
-  - Parameters:
-    - `directory`: Absolute path to the directory to pack
-    - `compress`: (Optional, default: false) Enable Tree-sitter compression to extract essential code signatures and structure while removing implementation details. Reduces token usage by ~70% while preserving semantic meaning. Generally not needed since grep_repomix_output allows incremental content retrieval. Use only when you specifically need the entire codebase content for large repositories.
-    - `includePatterns`: (Optional) Specify files to include using fast-glob patterns. Multiple patterns can be comma-separated (e.g., "**/*.{js,ts}", "src/**,docs/**"). Only matching files will be processed.
-    - `ignorePatterns`: (Optional) Specify additional files to exclude using fast-glob patterns. Multiple patterns can be comma-separated (e.g., "test/**,*.spec.js", "node_modules/**,dist/**"). These patterns supplement .gitignore, .ignore, and built-in exclusions.
-    - `topFilesLength`: (Optional, default: 10) Number of largest files by size to display in the metrics summary for codebase analysis.
+详细说明见 [MCP 服务器文档](website/client/src/zh-cn/guide/mcp-server.md)。
 
-2. **attach_packed_output**: Attach an existing Repomix packed output file for AI analysis
-  - Parameters:
-    - `path`: Path to a directory containing repomix-output.xml or direct path to a packed repository XML file
-    - `topFilesLength`: (Optional, default: 10) Number of largest files by size to display in the metrics summary
-  - Features:
-    - Accepts either a directory containing a repomix-output.xml file or a direct path to an XML file
-    - Registers the file with the MCP server and returns the same structure as the pack_codebase tool
-    - Provides secure access to existing packed outputs without requiring re-processing
-    - Useful for working with previously generated packed repositories
+<a id="claude-code-plugins"></a>
 
-3. **pack_remote_repository**: Fetch, clone, and package a GitHub repository into a consolidated XML file for AI analysis
-  - Parameters:
-    - `remote`: GitHub repository URL or user/repo format (e.g., "yamadashy/repomix", "https://github.com/user/repo", or "https://github.com/user/repo/tree/branch")
-    - `compress`: (Optional, default: false) Enable Tree-sitter compression to extract essential code signatures and structure while removing implementation details. Reduces token usage by ~70% while preserving semantic meaning. Generally not needed since grep_repomix_output allows incremental content retrieval. Use only when you specifically need the entire codebase content for large repositories.
-    - `includePatterns`: (Optional) Specify files to include using fast-glob patterns. Multiple patterns can be comma-separated (e.g., "**/*.{js,ts}", "src/**,docs/**"). Only matching files will be processed.
-    - `ignorePatterns`: (Optional) Specify additional files to exclude using fast-glob patterns. Multiple patterns can be comma-separated (e.g., "test/**,*.spec.js", "node_modules/**,dist/**"). These patterns supplement .gitignore, .ignore, and built-in exclusions.
-    - `topFilesLength`: (Optional, default: 10) Number of largest files by size to display in the metrics summary for codebase analysis.
+## Claude Code 插件
 
-4. **read_repomix_output**: Read the contents of a Repomix-generated output file. Supports partial reading with line range specification for large files.
-  - Parameters:
-    - `outputId`: ID of the Repomix output file to read
-    - `startLine`: (Optional) Starting line number (1-based, inclusive). If not specified, reads from beginning.
-    - `endLine`: (Optional) Ending line number (1-based, inclusive). If not specified, reads to end.
-  - Features:
-    - Specifically designed for web-based environments or sandboxed applications
-    - Retrieves the content of previously generated outputs using their ID
-    - Provides secure access to packed codebase without requiring file system access
-    - Supports partial reading for large files
+Repomix 为 [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) 提供官方插件，可以直接在 Claude Code 中使用自然语言分析和打包代码库。
 
-5. **grep_repomix_output**: Search for patterns in a Repomix output file using grep-like functionality with JavaScript RegExp syntax
-  - Parameters:
-    - `outputId`: ID of the Repomix output file to search
-    - `pattern`: Search pattern (JavaScript RegExp regular expression syntax)
-    - `contextLines`: (Optional, default: 0) Number of context lines to show before and after each match. Overridden by beforeLines/afterLines if specified.
-    - `beforeLines`: (Optional) Number of context lines to show before each match (like grep -B). Takes precedence over contextLines.
-    - `afterLines`: (Optional) Number of context lines to show after each match (like grep -A). Takes precedence over contextLines.
-    - `ignoreCase`: (Optional, default: false) Perform case-insensitive matching
-  - Features:
-    - Uses JavaScript RegExp syntax for powerful pattern matching
-    - Supports context lines for better understanding of matches
-    - Allows separate control of before/after context lines
-    - Case-sensitive and case-insensitive search options
+### 安装
 
-6. **file_system_read_file**: Read a file from the local file system using an absolute path. Includes built-in security validation to detect and prevent access to files containing sensitive information.
-  - Parameters:
-    - `path`: Absolute path to the file to read
-  - Security features:
-    - Implements security validation using [Secretlint](https://github.com/secretlint/secretlint)
-    - Prevents access to files containing sensitive information (API keys, passwords, secrets)
-    - Validates absolute paths to prevent directory traversal attacks
-
-7. **file_system_read_directory**: List the contents of a directory using an absolute path. Returns a formatted list showing files and subdirectories with clear indicators.
-  - Parameters:
-    - `path`: Absolute path to the directory to list
-  - Features:
-    - Shows files and directories with clear indicators (`[FILE]` or `[DIR]`)
-    - Provides safe directory traversal with proper error handling
-    - Validates paths and ensures they are absolute
-    - Useful for exploring project structure and understanding codebase organization
-
-### Claude Code Plugins
-
-Repomix provides official plugins for [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) that integrate seamlessly with the AI-powered development environment.
-
-#### Installation
-
-**1. Add the Repomix plugin marketplace:**
+先添加 Repomix 插件市场：
 
 ```text
 /plugin marketplace add yamadashy/repomix
 ```
 
-**2. Install plugins:**
+再安装需要的插件：
 
 ```text
-# Install MCP server plugin (recommended foundation)
+# MCP 服务器插件（推荐作为基础）
 /plugin install repomix-mcp@repomix
 
-# Install commands plugin (extends functionality)
+# 命令插件
 /plugin install repomix-commands@repomix
 
-# Install repository explorer plugin (AI-powered analysis)
+# 仓库探索器插件
 /plugin install repomix-explorer@repomix
 ```
 
-**Note**: The `repomix-mcp` plugin is recommended as a foundation. The `repomix-commands` plugin provides convenient slash commands, while `repomix-explorer` adds AI-powered analysis capabilities. While you can install them independently, using all three provides the most comprehensive experience.
-
-**Alternatively, use the interactive plugin installer:**
+也可以直接运行：
 
 ```text
 /plugin
 ```
 
-This will open an interactive interface where you can browse and install available plugins.
+通过交互式界面浏览和安装可用插件。
 
-#### Available Plugins
+### 插件概览
 
-**1. repomix-mcp** (MCP Server Plugin)
+- `repomix-mcp`
+  提供基于 MCP 的代码库分析基础能力。
+- `repomix-commands`
+  提供便捷的斜杠命令，例如打包本地或远程仓库。
+- `repomix-explorer`
+  提供 AI 驱动的仓库探索能力，可按自然语言指令分析代码结构。
 
-Foundation plugin that provides AI-powered codebase analysis through MCP server integration.
+详细说明见 [Claude Code 插件文档](website/client/src/zh-cn/guide/claude-code-plugins.md)。
 
-**Features:**
-- Pack local and remote repositories
-- Search through packed outputs
-- Read files with built-in security scanning (Secretlint)
-- Automatic Tree-sitter compression (~70% token reduction)
+## Agent Skills 生成
 
-**2. repomix-commands** (Slash Commands Plugin)
+Repomix 可以生成 [Claude Agent Skills](https://docs.anthropic.com/en/docs/claude-code/skills) 格式的输出，把代码库整理成可复用的技能目录，适合作为 AI 助手的长期参考资料。
 
-Provides convenient slash commands for quick operations with natural language support.
-
-**Available Commands:**
-- `/repomix-commands:pack-local` - Pack local codebase with various options
-- `/repomix-commands:pack-remote` - Pack and analyze remote GitHub repositories
-
-**Example usage:**
-```text
-/repomix-commands:pack-local
-Pack this project as markdown with compression
-
-/repomix-commands:pack-remote yamadashy/repomix
-Pack only TypeScript files from the yamadashy/repomix repository
-```
-
-**3. repomix-explorer** (AI Analysis Agent Plugin)
-
-AI-powered repository analysis agent that intelligently explores codebases using Repomix CLI.
-
-**Features:**
-- Natural language codebase exploration and analysis
-- Intelligent pattern discovery and code structure understanding
-- Incremental analysis using grep and targeted file reading
-- Automatic context management for large repositories
-
-**Available Commands:**
-- `/repomix-explorer:explore-local` - Analyze local codebase with AI assistance
-- `/repomix-explorer:explore-remote` - Analyze remote GitHub repositories with AI assistance
-
-**Example usage:**
-```text
-/repomix-explorer:explore-local ./src
-Find all authentication-related code
-
-/repomix-explorer:explore-remote facebook/react
-Show me the main component architecture
-```
-
-The agent automatically:
-1. Runs `npx repomix@latest` to pack the repository
-2. Uses Grep and Read tools to efficiently search the output
-3. Provides comprehensive analysis without consuming excessive context
-
-#### Benefits
-
-- **Seamless Integration**: Claude can directly analyze codebases without manual preparation
-- **Natural Language**: Use conversational commands instead of remembering CLI syntax
-- **Always Latest**: Automatically uses `npx repomix@latest` for up-to-date features
-- **Security Built-in**: Automatic Secretlint scanning prevents sensitive data exposure
-- **Token Optimization**: Tree-sitter compression for large codebases
-
-For more details, see the plugin documentation in the `.claude/plugins/` directory.
-
-### Agent Skills Generation
-
-Repomix can generate [Claude Agent Skills](https://docs.anthropic.com/en/docs/claude-code/skills) format output, creating a structured Skills directory that can be used as a reusable codebase reference for AI assistants. This feature is particularly powerful when you want to reference implementations from remote repositories.
-
-#### Basic Usage
+### 基本用法
 
 ```bash
-# Generate Skills from local directory
+# 从本地目录生成 Skills
 repomix --skill-generate
 
-# Generate with custom Skills name
+# 指定 Skills 名称
 repomix --skill-generate my-project-reference
 
-# Generate from remote repository
+# 从远程仓库生成 Skills
 repomix --remote https://github.com/user/repo --skill-generate
 ```
 
-When you run the command, Repomix prompts you to choose where to save the Skills:
+运行后，Repomix 会提示你选择保存位置：
 
-1. **Personal Skills** (`~/.claude/skills/`) - Available across all projects on your machine
-2. **Project Skills** (`.claude/skills/`) - Shared with your team via git
+1. **个人 Skills**：`~/.claude/skills/`
+2. **项目 Skills**：`.claude/skills/`
 
-#### Non-Interactive Usage
-
-For CI pipelines and automation scripts, you can skip all interactive prompts using `--skill-output` and `--force`:
+### 非交互式用法
 
 ```bash
-# Specify output directory directly
+# 直接指定输出目录
 repomix --skill-generate --skill-output ./my-skills
 
-# Skip overwrite confirmation with --force
+# 跳过覆盖确认
 repomix --skill-generate --skill-output ./my-skills --force
 
-# Full non-interactive example
+# 远程仓库完整示例
 repomix --remote user/repo --skill-generate my-skill --skill-output ./output --force
 ```
 
-#### Generated Structure
-
-The Skills are generated with the following structure:
+### 生成结构
 
 ```text
 .claude/skills/<skill-name>/
-├── SKILL.md                 # Main Skills metadata & documentation
+├── SKILL.md
 └── references/
-    ├── summary.md           # Purpose, format, and statistics
-    ├── project-structure.md # Directory tree with line counts
-    ├── files.md             # All file contents (grep-friendly)
-    └── tech-stacks.md       # Languages, frameworks, dependencies
+    ├── summary.md
+    ├── project-structure.md
+    ├── files.md
+    └── tech-stacks.md
 ```
 
-#### What's Included
+更多说明请查看 [Agent Skills 生成文档](website/client/src/zh-cn/guide/agent-skills-generation.md)。
 
-- **SKILL.md**: Contains Skills metadata, file/line/token counts, overview, and usage instructions
-- **summary.md**: Explains the Skills' purpose, usage guidelines, and provides statistics breakdown by file type and language
-- **project-structure.md**: Directory tree with line counts per file for easy file discovery
-- **files.md**: All file contents with syntax highlighting headers, optimized for grep-friendly searching
-- **tech-stacks.md**: Auto-detected tech stack per package from dependency files (`package.json`, `requirements.txt`, `Cargo.toml`, etc.)
+## Repomix Explorer Skill
 
-#### Auto-Generated Skills Names
+Repomix 还提供了现成可用的 **Repomix Explorer** skill，方便在 Claude Code、Cursor、Codex、GitHub Copilot 等 AI 编码助手中探索仓库。
 
-If no name is provided, Repomix auto-generates one:
-
-```bash
-repomix src/ --skill-generate                # → repomix-reference-src
-repomix --remote user/repo --skill-generate  # → repomix-reference-repo
-repomix --skill-generate CustomName          # → custom-name (normalized to kebab-case)
-```
-
-#### Integration with Repomix Features
-
-Skills generation respects all standard Repomix options:
-
-```bash
-# Generate Skills with file filtering
-repomix --skill-generate --include "src/**/*.ts" --ignore "**/*.test.ts"
-
-# Generate Skills with compression
-repomix --skill-generate --compress
-
-# Generate Skills from remote repository
-repomix --remote yamadashy/repomix --skill-generate
-```
-
-### Repomix Explorer Skill (Agent Skills)
-
-Repomix provides a ready-to-use **Repomix Explorer** skill that enables AI coding assistants to analyze and explore codebases using Repomix CLI. This skill is designed to work with various AI tools including Claude Code, Cursor, Codex, GitHub Copilot, and more.
-
-#### Quick Install
+快速安装：
 
 ```bash
 npx add-skill yamadashy/repomix --skill repomix-explorer
 ```
 
-This command installs the skill to your AI assistant's skills directory (e.g., `.claude/skills/`), making it immediately available.
-
-#### What It Does
-
-Once installed, you can analyze codebases with natural language instructions.
-
-Analyze remote repositories:
+示例：
 
 ```text
-"What's the structure of this repo?
+"这个仓库的结构是什么？
 https://github.com/facebook/react"
 ```
 
-Explore local codebases:
-
 ```text
-"What's in this project?
+"这个项目里都有什么？
 ~/projects/my-app"
 ```
 
-This is useful not only for understanding codebases, but also when you want to implement features by referencing your other repositories.
+详情见 [Repomix Explorer Skill 文档](website/client/src/zh-cn/guide/repomix-explorer-skill.md)。
 
-## ⚙️ Configuration
+## ⚙️ 配置
 
-Repomix supports multiple configuration file formats for flexibility and ease of use.
+Repomix 支持多种配置文件格式，并会按以下优先级自动查找：
 
-### Configuration File Formats
+1. TypeScript：`repomix.config.ts`、`repomix.config.mts`、`repomix.config.cts`
+2. JavaScript / ES Module：`repomix.config.js`、`repomix.config.mjs`、`repomix.config.cjs`
+3. JSON：`repomix.config.json5`、`repomix.config.jsonc`、`repomix.config.json`
 
-Repomix will automatically search for configuration files in the following priority order:
-
-1. **TypeScript** (`repomix.config.ts`, `repomix.config.mts`, `repomix.config.cts`)
-2. **JavaScript/ES Module** (`repomix.config.js`, `repomix.config.mjs`, `repomix.config.cjs`)
-3. **JSON** (`repomix.config.json5`, `repomix.config.jsonc`, `repomix.config.json`)
-
-#### JSON Configuration
-
-Create a `repomix.config.json` file in your project root:
+### 初始化 JSON 配置
 
 ```bash
 repomix --init
 ```
 
-This will create a `repomix.config.json` file with default settings.
-
-#### TypeScript Configuration
-
-TypeScript configuration files provide the best developer experience with full type checking and IDE support.
-
-**Installation:**
-
-To use TypeScript or JavaScript configuration with `defineConfig`, you need to install Repomix as a dev dependency:
+### 创建全局配置
 
 ```bash
-npm install -D repomix
+repomix --init --global
 ```
 
-**Example:**
+### TypeScript 配置示例
 
 ```typescript
 // repomix.config.ts
@@ -1338,80 +748,34 @@ export default defineConfig({
 });
 ```
 
-**Benefits:**
-- ✅ Full TypeScript type checking in your IDE
-- ✅ Excellent IDE autocomplete and IntelliSense
-- ✅ Use dynamic values (timestamps, environment variables, etc.)
+### 常用配置项
 
-**Dynamic Values Example:**
+- `output.filePath`
+  设置输出文件路径
+- `output.style`
+  输出格式，可选 `xml`、`markdown`、`json`、`plain`
+- `output.compress`
+  是否启用 Tree-sitter 压缩
+- `output.removeComments`
+  是否删除支持语言中的注释
+- `output.showLineNumbers`
+  是否在输出中显示行号
+- `output.includeFullDirectoryStructure`
+  在使用 `include` 时，是否仍显示完整目录树
+- `output.git.includeDiffs`
+  是否包含 Git diff
+- `output.git.includeLogs`
+  是否包含 Git 日志
+- `include`
+  包含模式
+- `ignore.customPatterns`
+  自定义忽略模式
+- `security.enableSecurityCheck`
+  是否启用 Secretlint 安全检查
+- `tokenCount.encoding`
+  token 计数编码，例如 `o200k_base`
 
-```typescript
-// repomix.config.ts
-import { defineConfig } from 'repomix';
-
-// Generate timestamp-based filename
-const timestamp = new Date().toISOString().slice(0, 19).replace(/[:.]/g, '-');
-
-export default defineConfig({
-  output: {
-    filePath: `output-${timestamp}.xml`,
-    style: 'xml',
-  },
-});
-```
-
-#### JavaScript Configuration
-
-JavaScript configuration files work the same as TypeScript, supporting `defineConfig` and dynamic values.
-
-### Configuration Options
-
-Here's an explanation of the configuration options:
-
-| Option                           | Description                                                                                                                  | Default                |
-|----------------------------------|------------------------------------------------------------------------------------------------------------------------------|------------------------|
-| `input.maxFileSize`              | Maximum file size in bytes to process. Files larger than this will be skipped                                                | `50000000`            |
-| `output.filePath`                | The name of the output file                                                                                                  | `"repomix-output.xml"` |
-| `output.style`                   | The style of the output (`xml`, `markdown`, `json`, `plain`)                                                                 | `"xml"`                |
-| `output.parsableStyle`           | Whether to escape the output based on the chosen style schema. Note that this can increase token count.                      | `false`                |
-| `output.compress`                | Whether to perform intelligent code extraction to reduce token count                                                         | `false`                |
-| `output.headerText`              | Custom text to include in the file header                                                                                    | `null`                 |
-| `output.instructionFilePath`     | Path to a file containing detailed custom instructions                                                                       | `null`                 |
-| `output.fileSummary`             | Whether to include a summary section at the beginning of the output                                                          | `true`                 |
-| `output.directoryStructure`      | Whether to include the directory structure in the output                                                                     | `true`                 |
-| `output.files`                   | Whether to include file contents in the output                                                                               | `true`                 |
-| `output.removeComments`          | Whether to remove comments from supported file types                                                                         | `false`                |
-| `output.removeEmptyLines`        | Whether to remove empty lines from the output                                                                                | `false`                |
-| `output.showLineNumbers`         | Whether to add line numbers to each line in the output                                                                       | `false`                |
-| `output.truncateBase64`          | Whether to truncate long base64 data strings (e.g., images) to reduce token count                                            | `false`                |
-| `output.copyToClipboard`         | Whether to copy the output to system clipboard in addition to saving the file                                                | `false`                |
-| `output.splitOutput`             | Split output into multiple numbered files by maximum size per part (e.g., `1000000` for ~1MB). Keeps each file under the limit and avoids splitting files across parts | Not set                |
-| `output.topFilesLength`          | Number of top files to display in the summary. If set to 0, no summary will be displayed                                     | `5`                    |
-| `output.tokenCountTree`          | Whether to display file tree with token count summaries. Can be boolean or number (minimum token count threshold)           | `false`                |
-| `output.includeEmptyDirectories` | Whether to include empty directories in the repository structure                                                             | `false`                |
-| `output.includeFullDirectoryStructure` | When using `include` patterns, whether to display the complete directory tree (respecting ignore patterns) while still processing only the included files. Provides full repository context for AI analysis | `false`                |
-| `output.git.sortByChanges`       | Whether to sort files by git change count (files with more changes appear at the bottom)                                     | `true`                 |
-| `output.git.sortByChangesMaxCommits` | Maximum number of commits to analyze for git changes                                                                     | `100`                  |
-| `output.git.includeDiffs`       | Whether to include git diffs in the output (includes both work tree and staged changes separately)                          | `false`                |
-| `output.git.includeLogs`        | Whether to include git logs in the output (includes commit history with dates, messages, and file paths)                   | `false`                |
-| `output.git.includeLogsCount`   | Number of git log commits to include                                                                                         | `50`                   |
-| `include`                        | Patterns of files to include (using [glob patterns](https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#pattern-syntax))  | `[]`                   |
-| `ignore.useGitignore`            | Whether to use patterns from the project's `.gitignore` file                                                                 | `true`                 |
-| `ignore.useDotIgnore`            | Whether to use patterns from the project's `.ignore` file                                                                    | `true`                 |
-| `ignore.useDefaultPatterns`      | Whether to use default ignore patterns                                                                                       | `true`                 |
-| `ignore.customPatterns`          | Additional patterns to ignore (using [glob patterns](https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#pattern-syntax)) | `[]`                   |
-| `security.enableSecurityCheck`   | Whether to perform security checks on files                                                                                  | `true`                 |
-| `tokenCount.encoding`            | Token count encoding for OpenAI-compatible tokenization (e.g., `o200k_base` for GPT-4o, `cl100k_base` for GPT-4/3.5). Powered by [gpt-tokenizer](https://github.com/nicolo-ribaudo/gpt-tokenizer). | `"o200k_base"`         |
-
-The configuration file supports [JSON5](https://json5.org/) syntax, which allows:
-- Comments (both single-line and multi-line)
-- Trailing commas in objects and arrays
-- Unquoted property names
-- More relaxed string syntax
-
-### Schema Validation
-
-You can enable schema validation for your configuration file by adding the `$schema` property:
+### Schema 校验
 
 ```json
 {
@@ -1423,131 +787,9 @@ You can enable schema validation for your configuration file by adding the `$sch
 }
 ```
 
-This provides auto-completion and validation in editors that support JSON schema.
+### 自定义指令文件
 
-### Example Configuration
-
-Example configuration:
-
-```json5
-{
-  "$schema": "https://repomix.com/schemas/latest/schema.json",
-  "input": {
-    "maxFileSize": 50000000
-  },
-  "output": {
-    "filePath": "repomix-output.xml",
-    "style": "xml",
-    "parsableStyle": false,
-    "compress": false,
-    "headerText": "Custom header information for the packed file.",
-    "fileSummary": true,
-    "directoryStructure": true,
-    "files": true,
-    "removeComments": false,
-    "removeEmptyLines": false,
-    "topFilesLength": 5,
-    "tokenCountTree": false, // or true, or a number like 10 for minimum token threshold
-    "showLineNumbers": false,
-    "truncateBase64": false,
-    "copyToClipboard": false,
-    "splitOutput": null, // or a number like 1000000 for ~1MB per file
-    "includeEmptyDirectories": false,
-    "git": {
-      "sortByChanges": true,
-      "sortByChangesMaxCommits": 100,
-      "includeDiffs": false,
-      "includeLogs": false,
-      "includeLogsCount": 50
-    }
-  },
-  "include": ["**/*"],
-  "ignore": {
-    "useGitignore": true,
-    "useDefaultPatterns": true,
-    // Patterns can also be specified in .repomixignore
-    "customPatterns": [
-      "additional-folder",
-      "**/*.log"
-    ],
-  },
-  "security": {
-    "enableSecurityCheck": true
-  },
-  "tokenCount": {
-    "encoding": "o200k_base"
-  }
-}
-```
-
-### Global Configuration
-
-To create a global configuration file:
-
-```bash
-repomix --init --global
-```
-
-The global configuration file will be created in:
-
-- Windows: `%LOCALAPPDATA%\Repomix\repomix.config.json`
-- macOS/Linux: `$XDG_CONFIG_HOME/repomix/repomix.config.json` or `~/.config/repomix/repomix.config.json`
-
-Note: Local configuration (if present) takes precedence over global configuration.
-
-### Include and Ignore
-
-#### Include Patterns
-
-Repomix now supports specifying files to include
-using [glob patterns](https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#pattern-syntax). This allows for more
-flexible and powerful file selection:
-
-- Use `**/*.js` to include all JavaScript files in any directory
-- Use `src/**/*` to include all files within the `src` directory and its subdirectories
-- Combine multiple patterns like `["src/**/*.js", "**/*.md"]` to include JavaScript files in `src` and all Markdown
-  files
-
-#### Ignore Patterns
-
-Repomix offers multiple methods to set ignore patterns for excluding specific files or directories during the packing
-process:
-
-- **.gitignore**: By default, patterns listed in your project's `.gitignore` files and `.git/info/exclude` are used. This behavior can be controlled with the `ignore.useGitignore` setting or the `--no-gitignore` cli option.
-- **.ignore**: You can use a `.ignore` file in your project root, following the same format as `.gitignore`. This file is respected by tools like ripgrep and the silver searcher, reducing the need to maintain multiple ignore files. This behavior can be controlled with the `ignore.useDotIgnore` setting or the `--no-dot-ignore` cli option.
-- **Default patterns**: Repomix includes a default list of commonly excluded files and directories (e.g., node_modules,
-  .git, binary files). This feature can be controlled with the `ignore.useDefaultPatterns` setting or the `--no-default-patterns` cli option. Please
-  see [defaultIgnore.ts](src/config/defaultIgnore.ts) for more details.
-- **.repomixignore**: You can create a `.repomixignore` file in your project root to define Repomix-specific ignore
-  patterns. This file follows the same format as `.gitignore`.
-- **Custom patterns**: Additional ignore patterns can be specified using the `ignore.customPatterns` option in the
-  configuration file. You can overwrite this setting with the `-i, --ignore` command line option.
-
-Priority Order (from highest to lowest):
-
-1. Custom patterns (`ignore.customPatterns`)
-2. Ignore files (`.repomixignore`, `.ignore`, `.gitignore`, and `.git/info/exclude`):
-   - When in nested directories, files in deeper directories have higher priority
-   - When in the same directory, these files are merged in no particular order
-3. Default patterns (if `ignore.useDefaultPatterns` is true and `--no-default-patterns` is not used)
-
-This approach allows for flexible file exclusion configuration based on your project's needs. It helps optimize the size
-of the generated pack file by ensuring the exclusion of security-sensitive files and large binary files, while
-preventing the leakage of confidential information.
-
-Note: Binary files are not included in the packed output by default, but their paths are listed in the "Repository
-Structure" section of the output file. This provides a complete overview of the repository structure while keeping the
-packed file efficient and text-based.
-
-### Custom Instruction
-
-The `output.instructionFilePath` option allows you to specify a separate file containing detailed instructions or
-context about your project. This allows AI systems to understand the specific context and requirements of your project,
-potentially leading to more relevant and tailored analysis or suggestions.
-
-Here's an example of how you might use this feature:
-
-1. Create a file named `repomix-instruction.md` in your project root:
+如果你想在输出末尾附加项目上下文或编码规范，可以使用 `output.instructionFilePath`：
 
 ```markdown
 # Coding Guidelines
@@ -1556,59 +798,41 @@ Here's an example of how you might use this feature:
 - Suggest splitting files into smaller, focused units when appropriate
 - Add comments for non-obvious logic. Keep all text in English
 - All new features should have corresponding unit tests
-
-# Generate Comprehensive Output
-
-- Include all content without abbreviation, unless specified otherwise
-- Optimize for handling large codebases while maintaining output quality
 ```
 
-2. In your `repomix.config.json`, add the `instructionFilePath` option:
+配置方式：
 
 ```json5
 {
   "output": {
-    "instructionFilePath": "repomix-instruction.md",
-    // other options...
+    "instructionFilePath": "repomix-instruction.md"
   }
 }
 ```
 
-When Repomix generates the output, it will include the contents of `repomix-instruction.md` in a dedicated section.
+### 注释移除
 
-Note: The instruction content is appended at the end of the output file. This placement can be particularly effective
-for AI systems. For those interested in understanding why this might be beneficial, Anthropic provides some insights in
-their documentation:  
-https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/long-context-tips
+当 `output.removeComments` 为 `true` 时，Repomix 会尝试删除支持语言中的注释，以减少输出体积和噪音。
 
-> Put long-form data at the top: Place your long documents and inputs (~20K+ tokens) near the top of your prompt, above
-> your query, instructions, and examples. This can significantly improve Claude's performance across all models.
-> Queries at the end can improve response quality by up to 30% in tests, especially with complex, multi-document inputs.
+目前支持的语言包括：
 
-### Comment Removal
+- HTML
+- CSS
+- JavaScript / TypeScript
+- Vue / Svelte
+- Python / PHP / Ruby
+- C / C# / Java / Go / Rust / Swift / Kotlin / Dart
+- Shell / YAML
 
-When `output.removeComments` is set to `true`, Repomix will attempt to remove comments from supported file types. This
-feature can help reduce the size of the output file and focus on the essential code content.
+完整配置说明请参考 [配置文档](website/client/src/zh-cn/guide/configuration.md)。
 
-Supported languages include:  
-HTML, CSS, JavaScript, TypeScript, Vue, Svelte, Python, PHP, Ruby, C, C#, Java, Go, Rust, Swift, Kotlin, Dart, Shell,
-and YAML.
+## 🔍 安全检查
 
-Note: The comment removal process is conservative to avoid accidentally removing code. In complex cases, some comments
-might be retained.
+Repomix 集成了基于 [Secretlint](https://github.com/secretlint/secretlint) 的安全检查，用于在打包前发现潜在敏感信息，例如 API Key、密码或测试用密钥。
 
-## 🔍 Security Check
+示例输出：
 
-Repomix includes a security check feature that uses [Secretlint](https://github.com/secretlint/secretlint) to detect
-potentially sensitive information in your files. This feature helps you identify possible security risks before sharing
-your packed repository.
-
-The security check results will be displayed in the CLI output after the packing process is complete. If any suspicious
-files are detected, you'll see a list of these files along with a warning message.
-
-Example output:
-
-```
+```text
 🔍 Security Check:
 ──────────────────
 2 suspicious file(s) detected:
@@ -1618,8 +842,7 @@ Example output:
 Please review these files for potentially sensitive information.
 ```
 
-By default, Repomix's security check feature is enabled. You can disable it by setting `security.enableSecurityCheck` to
-`false` in your configuration file:
+默认情况下，安全检查处于启用状态。你可以通过配置文件关闭：
 
 ```json
 {
@@ -1629,21 +852,22 @@ By default, Repomix's security check feature is enabled. You can disable it by s
 }
 ```
 
-Or using the `--no-security-check` command line option:
+或使用命令行参数：
 
 ```bash
 repomix --no-security-check
 ```
 
 > [!NOTE]
-> Disabling security checks may expose sensitive information. Use this option with caution and only when necessary, such
-> as when working with test files or documentation that contains example credentials.
+> 关闭安全检查可能导致敏感信息被打包并分享出去。只有在你确认当前场景安全时才建议关闭。
 
-## 🤖 Using Repomix with GitHub Actions
+更多细节请参考 [安全文档](website/client/src/zh-cn/guide/security.md)。
 
-You can also use Repomix in your GitHub Actions workflows. This is useful for automating the process of packing your codebase for AI analysis.
+## 🤖 在 GitHub Actions 中使用 Repomix
 
-Basic usage:
+你也可以在 GitHub Actions 里使用 Repomix，把代码库打包流程自动化。
+
+基础示例：
 
 ```yaml
 - name: Pack repository with Repomix
@@ -1653,7 +877,7 @@ Basic usage:
     style: xml
 ```
 
-Use `--style` to generate output in different formats:
+指定 Markdown 输出：
 
 ```yaml
 - name: Pack repository with Repomix
@@ -1663,28 +887,7 @@ Use `--style` to generate output in different formats:
     style: markdown
 ```
 
-```yaml
-- name: Pack repository with Repomix (JSON format)
-  uses: yamadashy/repomix/.github/actions/repomix@main
-  with:
-    output: repomix-output.json
-    style: json
-```
-
-Pack specific directories with compression:
-
-```yaml
-- name: Pack repository with Repomix
-  uses: yamadashy/repomix/.github/actions/repomix@main
-  with:
-    directories: src tests
-    include: "**/*.ts,**/*.md"
-    ignore: "**/*.test.ts"
-    output: repomix-output.txt
-    compress: true
-```
-
-Upload the output file as an artifact:
+压缩并上传产物：
 
 ```yaml
 - name: Pack repository with Repomix
@@ -1701,75 +904,23 @@ Upload the output file as an artifact:
     path: repomix-output.txt
 ```
 
-Complete workflow example:
+更多内容见 [GitHub Actions 文档](website/client/src/zh-cn/guide/github-actions.md)。
 
-```yaml
-name: Pack repository with Repomix
+## 📚 作为库使用
 
-on:
-  workflow_dispatch:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+除了 CLI 之外，你也可以在 Node.js 应用中把 Repomix 当作库使用。
 
-jobs:
-  pack-repo:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Pack repository with Repomix
-        uses: yamadashy/repomix/.github/actions/repomix@main
-        with:
-          output: repomix-output.xml
-
-      - name: Upload Repomix output
-        uses: actions/upload-artifact@v4
-        with:
-          name: repomix-output.xml
-          path: repomix-output.xml
-          retention-days: 30
-```
-
-See the complete workflow example [here](https://github.com/yamadashy/repomix/blob/main/.github/workflows/pack-repository.yml).
-
-### Action Inputs
-
-| Name | Description | Default |
-|------|-------------|---------|
-| `directories` | Space-separated list of directories to process (e.g., `src tests docs`) | `.` |
-| `include` | Comma-separated glob patterns to include files (e.g., `**/*.ts,**/*.md`) | `""` |
-| `ignore` | Comma-separated glob patterns to ignore files (e.g., `**/*.test.ts,**/node_modules/**`) | `""` |
-| `output` | Relative path for the packed file (extension determines format: `.txt`, `.md`, `.xml`) | `repomix-output.xml` |
-| `compress` | Enable smart compression to reduce output size by pruning implementation details | `true` |
-| `style` | Output style (`xml`, `markdown`, `json`, `plain`) | `xml` |
-| `additional-args` | Extra raw arguments for the repomix CLI (e.g., `--no-file-summary --no-security-check`) | `""` |
-| `repomix-version` | Version of the npm package to install (supports semver ranges, tags, or specific versions like `0.2.25`) | `latest` |
-
-### Action Outputs
-
-| Name | Description |
-|------|-------------|
-| `output_file` | Path to the generated output file. Can be used in subsequent steps for artifact upload, LLM processing, or other operations. The file contains a formatted representation of your codebase based on the specified options. |
-
-## 📚 Using Repomix as a Library
-
-In addition to using Repomix as a CLI tool, you can also use it as a library in your Node.js applications.
-
-### Installation
+### 安装
 
 ```bash
 npm install repomix
 ```
 
-### Basic Usage
+### 基本示例
 
 ```javascript
 import { runCli, type CliOptions } from 'repomix';
 
-// Process current directory with custom options
 async function packProject() {
   const options = {
     output: 'output.xml',
@@ -1777,46 +928,40 @@ async function packProject() {
     compress: true,
     quiet: true
   } as CliOptions;
-  
+
   const result = await runCli(['.'], process.cwd(), options);
   return result.packResult;
 }
 ```
 
-### Process Remote Repository
+### 处理远程仓库
 
 ```javascript
 import { runCli, type CliOptions } from 'repomix';
 
-// Clone and process a GitHub repo
 async function processRemoteRepo(repoUrl) {
   const options = {
     remote: repoUrl,
     output: 'output.xml',
     compress: true
   } as CliOptions;
-  
+
   return await runCli(['.'], process.cwd(), options);
 }
 ```
 
-### Using Core Components
-
-If you need more control, you can use the low-level APIs:
+### 使用底层组件
 
 ```javascript
 import { searchFiles, collectFiles, processFiles, TokenCounter } from 'repomix';
 
 async function analyzeFiles(directory) {
-  // Find and collect files
   const { filePaths } = await searchFiles(directory, { /* config */ });
   const rawFiles = await collectFiles(filePaths, directory);
   const processedFiles = await processFiles(rawFiles, { /* config */ });
-  
-  // Count tokens
+
   const tokenCounter = new TokenCounter('o200k_base');
-  
-  // Return analysis results
+
   return processedFiles.map(file => ({
     path: file.path,
     tokens: tokenCounter.countTokens(file.content)
@@ -1824,55 +969,53 @@ async function analyzeFiles(directory) {
 }
 ```
 
-For more examples, check the source code at [website/server/src/remoteRepo.ts](https://github.com/yamadashy/repomix/blob/main/website/server/src/remoteRepo.ts) which demonstrates how repomix.com uses the library.
+打包工具（如 Rolldown、esbuild）集成时，还需要注意：
 
-### Bundling
+- `tinypool` 这类依赖需要保持 external
+- `web-tree-sitter.wasm` 需要复制到打包产物对应目录
+- Tree-sitter 语言文件目录由 `REPOMIX_WASM_DIR` 指定
 
-When bundling repomix with tools like Rolldown or esbuild, some dependencies must remain external and WASM files need to be copied:
+可参考：
 
-**External dependencies (cannot be bundled):**
-- `tinypool` - Spawns worker threads using file paths
+- [website/server/src/remoteRepo.ts](https://github.com/yamadashy/repomix/blob/main/website/server/src/remoteRepo.ts)
+- [website/server/scripts/bundle.mjs](https://github.com/yamadashy/repomix/blob/main/website/server/scripts/bundle.mjs)
 
-**WASM files to copy:**
-- `web-tree-sitter.wasm` → Same directory as bundled JS (required for code compression feature)
-- Tree-sitter language files → Directory specified by `REPOMIX_WASM_DIR` environment variable
+更多内容见 [作为库使用文档](website/client/src/zh-cn/guide/development/using-repomix-as-a-library.md)。
 
-For a working example, see [website/server/scripts/bundle.mjs](https://github.com/yamadashy/repomix/blob/main/website/server/scripts/bundle.mjs).
+## 🌍 社区项目
 
-## 🌍 Community Projects
+这里整理了一些社区围绕 Repomix 构建的项目：
 
-Discover amazing projects built by the Repomix community!
+- [Repomix Runner](https://github.com/massdo/repomix-runner) - 用于 VSCode 的扩展，可将文件打包为单个 AI 分析输出
+- [Repomix Desktop](https://github.com/KevanMacGee/Repomix-Desktop) - 使用 Python 和 CustomTkinter 构建的桌面版 GUI
+- [Python Repomix](https://github.com/AndersonBY/python-repomix) - 基于 AST 压缩的 Python 实现
+- [Rulefy](https://github.com/niklub/rulefy) - 将 GitHub 仓库转换为 Cursor 规则
+- [Codebase MCP](https://github.com/DeDeveloper23/codebase-mcp) - 基于 Repomix 的 MCP 代码库分析服务
+- [vibe-tools](https://github.com/eastlondoner/vibe-tools) - 带有 Web 搜索、仓库分析和浏览器自动化能力的 AI Agent CLI 工具集
 
-- [Repomix Runner](https://github.com/massdo/repomix-runner) - VSCode extension for bundling files into a single output for AI processing
-- [Repomix Desktop](https://github.com/KevanMacGee/Repomix-Desktop) - GUI desktop application for Repomix built with Python and CustomTkinter
-- [Python Repomix](https://github.com/AndersonBY/python-repomix) - Python implementation with AST-based compression
-- [Rulefy](https://github.com/niklub/rulefy) - Transform GitHub repos into custom Cursor AI rules using Claude AI
-- [Codebase MCP](https://github.com/DeDeveloper23/codebase-mcp) - MCP server that uses Repomix for AI-powered codebase analysis
-- [vibe-tools](https://github.com/eastlondoner/vibe-tools) - CLI toolset for AI agents with web search, repo analysis, and browser automation
+更多社区项目请查看 [Community Projects 文档](website/client/src/zh-cn/guide/community-projects.md)。
 
-For more details, visit our [Community Projects page](https://repomix.com/guide/community-projects).
+## 🤝 参与贡献
 
-## 🤝 Contribution
+欢迎社区参与贡献。开始之前请先阅读 [Contributing Guide](CONTRIBUTING.md)。
 
-We welcome contributions from the community! To get started, please refer to our [Contributing Guide](CONTRIBUTING.md).
-
-### Contributors
+### 贡献者
 
 <a href="https://github.com/yamadashy/repomix/graphs/contributors">
   <img alt="contributors" src="https://contrib.rocks/image?repo=yamadashy/repomix"/>
 </a>
 
-## 🔒 Privacy Policy
+## 🔒 隐私政策
 
-See our [Privacy Policy](https://repomix.com/guide/privacy).
+请查看 [Privacy Policy](https://repomix.com/guide/privacy)。
 
-## 📜 License
+## 📜 许可证
 
-This project is licensed under the [MIT License](LICENSE).
+本项目基于 [MIT License](LICENSE) 开源。
 
 <p align="center">
   &nbsp;&nbsp;&nbsp;
   <a href="#repo-content-pjax-container" target="_blank">
-    Back To Top
+    返回顶部
   </a>
 </p>

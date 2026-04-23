@@ -18,7 +18,6 @@ export class Spinner {
     if (!process.stdout.getWindowSize && process.env.COLUMNS) {
       const columns = Number(process.env.COLUMNS);
       if (columns > 0) {
-        // biome-ignore lint: accessing private property to work around child process limitation
         (renderer as unknown as { terminalWidth: number }).terminalWidth = columns;
       }
     }

@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ChevronLeft, FolderOpen, LoaderCircle, RefreshCw, X } from 'lucide-vue-next';
 import { computed, nextTick, ref, watch } from 'vue';
-import { ApiError, browseLocalPathDirectories, type LocalPathDirectoryListing } from '../api/client';
 import {
   createDefaultLocalPathBrowserState,
+  type LocalPathBrowserState,
   loadLocalPathBrowserState,
   saveLocalPathBrowserState,
-  type LocalPathBrowserState,
 } from '../../utils/tryItPersistence';
+import { ApiError, browseLocalPathDirectories, type LocalPathDirectoryListing } from '../api/client';
 import {
   buildLocalPathBreadcrumbs,
   filterLocalPathEntries,
@@ -65,28 +65,25 @@ watch(
   },
 );
 
-watch(
-  [() => listing.value?.entries, searchQuery],
-  () => {
-    const activeEntries = visibleEntries.value;
-    if (!activeEntries.length) {
-      selectedIndex.value = -1;
-      persistBrowserState({ selectedPath: null });
-      return;
-    }
+watch([() => listing.value?.entries, searchQuery], () => {
+  const activeEntries = visibleEntries.value;
+  if (!activeEntries.length) {
+    selectedIndex.value = -1;
+    persistBrowserState({ selectedPath: null });
+    return;
+  }
 
-    const restoredIndex = browserState.value.selectedPath
-      ? activeEntries.findIndex((entry) => entry.path === browserState.value.selectedPath)
-      : -1;
+  const restoredIndex = browserState.value.selectedPath
+    ? activeEntries.findIndex((entry) => entry.path === browserState.value.selectedPath)
+    : -1;
 
-    if (restoredIndex >= 0) {
-      selectedIndex.value = restoredIndex;
-      return;
-    }
+  if (restoredIndex >= 0) {
+    selectedIndex.value = restoredIndex;
+    return;
+  }
 
-    selectedIndex.value = 0;
-  },
-);
+  selectedIndex.value = 0;
+});
 
 watch(selectedIndex, (index) => {
   if (index >= 0 && visibleEntries.value[index]) {
@@ -122,8 +119,7 @@ async function loadDirectory(targetPath?: string) {
       listRef.value.scrollTop = shouldRestoreScroll ? previousScrollTop : 0;
     }
   } catch (err) {
-    error.value =
-      err instanceof ApiError || err instanceof Error ? err.message : uiText.value.errors.unexpectedError;
+    error.value = err instanceof ApiError || err instanceof Error ? err.message : uiText.value.errors.unexpectedError;
   } finally {
     loading.value = false;
   }

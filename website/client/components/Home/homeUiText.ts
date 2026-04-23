@@ -296,7 +296,8 @@ const enText: HomeUiText = {
     cliGuidePrefix: 'See ',
     cliToolLabel: 'Using the CLI Tool',
     cliGuideSuffix: ' for more details.',
-    requestTimedOut: 'Request timed out.\nPlease consider using Include Patterns or Ignore Patterns to reduce the scope.',
+    requestTimedOut:
+      'Request timed out.\nPlease consider using Include Patterns or Ignore Patterns to reduce the scope.',
     requestCancelled: 'Request was cancelled.',
     requestCancelledUnknown: 'Request was cancelled with an unknown reason.',
     unexpectedError: 'An unexpected error occurred',
@@ -374,8 +375,7 @@ const zhText: HomeUiText = {
     fileProcessingOptions: '文件处理选项',
     compressCode: '压缩代码',
     compressInfoAria: '查看代码压缩说明',
-    compressHelp:
-      '利用 Tree-sitter 智能提取关键代码签名和结构，移除实现细节，显著减少 token 使用量。',
+    compressHelp: '利用 Tree-sitter 智能提取关键代码签名和结构，移除实现细节，显著减少 token 使用量。',
     removeComments: '移除注释',
     removeEmptyLines: '移除空行',
   },

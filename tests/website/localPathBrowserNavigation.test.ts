@@ -48,11 +48,7 @@ describe('localPathBrowserNavigation', () => {
 
   it('keeps a bounded MRU list for recent directories', () => {
     expect(
-      pushRecentLocalPath(
-        ['/Users/jones/Desktop', '/Users/jones/Documents'],
-        '/Users/jones/Downloads',
-        3,
-      ),
+      pushRecentLocalPath(['/Users/jones/Desktop', '/Users/jones/Documents'], '/Users/jones/Downloads', 3),
     ).toEqual(['/Users/jones/Downloads', '/Users/jones/Desktop', '/Users/jones/Documents']);
 
     expect(

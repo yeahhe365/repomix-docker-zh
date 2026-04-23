@@ -5,6 +5,7 @@ node_modules/
 lib/
 website/client/.vitepress/dist/
 website/client/.vitepress/cache/
+website/client/test-results/
 website/server/dist/
 website/server/.compile-cache/
 

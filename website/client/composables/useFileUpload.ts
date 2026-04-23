@@ -71,7 +71,8 @@ export function useFileUpload(config: FileUploadConfig) {
       if (!isValidType) {
         return {
           valid: false,
-          error: config.messages?.invalidFileType?.(acceptedTypes) ?? `Please upload a ${acceptedTypes.join(' or ')} file`,
+          error:
+            config.messages?.invalidFileType?.(acceptedTypes) ?? `Please upload a ${acceptedTypes.join(' or ')} file`,
         };
       }
     }
@@ -81,7 +82,8 @@ export function useFileUpload(config: FileUploadConfig) {
       const limitMB = (maxFileSize / (1024 * 1024)).toFixed(0);
       return {
         valid: false,
-        error: config.messages?.fileTooLarge?.(sizeMB, limitMB) ?? `File size (${sizeMB}MB) exceeds the ${limitMB}MB limit`,
+        error:
+          config.messages?.fileTooLarge?.(sizeMB, limitMB) ?? `File size (${sizeMB}MB) exceeds the ${limitMB}MB limit`,
       };
     }
 
@@ -156,7 +158,9 @@ export function useFileUpload(config: FileUploadConfig) {
         resultFile = await preprocessFiles(files, folderName);
       } else {
         if ((config.mode === 'folder' || multiple) && files.length > 1) {
-          throw new Error(config.messages?.multipleFilesNeedPreprocessor || 'Multiple files require a preprocessor function');
+          throw new Error(
+            config.messages?.multipleFilesNeedPreprocessor || 'Multiple files require a preprocessor function',
+          );
         }
         resultFile = files[0];
       }
@@ -171,7 +175,8 @@ export function useFileUpload(config: FileUploadConfig) {
 
       return { success: true, result: resultFile };
     } catch (error) {
-      const errorMsg = error instanceof Error ? error.message : config.messages?.processingFailed || 'Processing failed';
+      const errorMsg =
+        error instanceof Error ? error.message : config.messages?.processingFailed || 'Processing failed';
       errorMessage.value = errorMsg;
       return { success: false, error: errorMsg };
     } finally {
@@ -244,7 +249,8 @@ export function useFileUpload(config: FileUploadConfig) {
       return await processFiles(files, entry.name);
     } catch {
       const errorMsg =
-        config.messages?.failedToProcessFolder || 'Failed to process the folder. Please try again or use the browse button.';
+        config.messages?.failedToProcessFolder ||
+        'Failed to process the folder. Please try again or use the browse button.';
       errorMessage.value = errorMsg;
       return { success: false, error: errorMsg };
     }
@@ -263,12 +269,16 @@ export function useFileUpload(config: FileUploadConfig) {
   ): Promise<File[]> {
     // Check depth limit
     if (depth > MAX_DEPTH) {
-      throw new Error(config.messages?.directoryTooDeep?.(MAX_DEPTH) || `Directory structure too deep (max depth: ${MAX_DEPTH})`);
+      throw new Error(
+        config.messages?.directoryTooDeep?.(MAX_DEPTH) || `Directory structure too deep (max depth: ${MAX_DEPTH})`,
+      );
     }
 
     // Check file count limit
     if (fileCount.current > MAX_FILES) {
-      throw new Error(config.messages?.tooManyFiles?.(MAX_FILES) || `Too many files in directory structure (max files: ${MAX_FILES})`);
+      throw new Error(
+        config.messages?.tooManyFiles?.(MAX_FILES) || `Too many files in directory structure (max files: ${MAX_FILES})`,
+      );
     }
 
     if (entry.isFile) {
@@ -276,7 +286,12 @@ export function useFileUpload(config: FileUploadConfig) {
         (entry as FileSystemFileEntry).file((file: File) => {
           // Check file count before adding
           if (fileCount.current >= MAX_FILES) {
-            reject(new Error(config.messages?.tooManyFiles?.(MAX_FILES) || `Too many files in directory structure (max files: ${MAX_FILES})`));
+            reject(
+              new Error(
+                config.messages?.tooManyFiles?.(MAX_FILES) ||
+                  `Too many files in directory structure (max files: ${MAX_FILES})`,
+              ),
+            );
             return;
           }
 
@@ -311,12 +326,14 @@ export function useFileUpload(config: FileUploadConfig) {
                   // Check limits before processing each entry
                   if (depth + 1 > MAX_DEPTH) {
                     throw new Error(
-                      config.messages?.directoryTooDeep?.(MAX_DEPTH) || `Directory structure too deep (max depth: ${MAX_DEPTH})`,
+                      config.messages?.directoryTooDeep?.(MAX_DEPTH) ||
+                        `Directory structure too deep (max depth: ${MAX_DEPTH})`,
                     );
                   }
                   if (fileCount.current > MAX_FILES) {
                     throw new Error(
-                      config.messages?.tooManyFiles?.(MAX_FILES) || `Too many files in directory structure (max files: ${MAX_FILES})`,
+                      config.messages?.tooManyFiles?.(MAX_FILES) ||
+                        `Too many files in directory structure (max files: ${MAX_FILES})`,
                     );
                   }
 

@@ -112,8 +112,8 @@ import { FolderArchive, FolderOpen, Link2, RotateCcw } from 'lucide-vue-next';
 import { computed, nextTick, onMounted, watch } from 'vue';
 import { usePackRequest } from '../../composables/usePackRequest';
 import { isBot } from '../../utils/botDetect';
-import { hasNonDefaultValues, parseUrlParameters, updateUrlParameters } from '../../utils/urlParams';
 import { clearLocalPathBrowserState, clearTryItPageState } from '../../utils/tryItPersistence';
+import { hasNonDefaultValues, parseUrlParameters, updateUrlParameters } from '../../utils/urlParams';
 import type { FileInfo } from '../api/client';
 import { isValidRemoteValue } from '../utils/validation';
 import PackButton from './PackButton.vue';
@@ -161,15 +161,17 @@ const uiText = useHomeUiText();
 
 // Check if reset button should be shown
 const shouldShowReset = computed(() => {
-  return hasNonDefaultValues(
-    '',
-    packOptions as unknown as Record<string, unknown>,
-    DEFAULT_PACK_OPTIONS as unknown as Record<string, unknown>,
-  )
-    || mode.value !== 'url'
-    || Boolean(inputUrl.value.trim())
-    || Boolean(inputLocalPath.value.trim())
-    || Boolean(uploadedFile.value);
+  return (
+    hasNonDefaultValues(
+      '',
+      packOptions as unknown as Record<string, unknown>,
+      DEFAULT_PACK_OPTIONS as unknown as Record<string, unknown>,
+    ) ||
+    mode.value !== 'url' ||
+    Boolean(inputUrl.value.trim()) ||
+    Boolean(inputLocalPath.value.trim()) ||
+    Boolean(uploadedFile.value)
+  );
 });
 
 // Function to update URL parameters based on current state
@@ -221,7 +223,12 @@ async function handleSubmit(event?: SubmitEvent) {
 }
 
 function handleKeydown(event: KeyboardEvent) {
-  if (event.key === 'Enter' && (mode.value === 'url' || mode.value === 'localPath') && isSubmitValid.value && !loading.value) {
+  if (
+    event.key === 'Enter' &&
+    (mode.value === 'url' || mode.value === 'localPath') &&
+    isSubmitValid.value &&
+    !loading.value
+  ) {
     handleSubmit();
   }
 }

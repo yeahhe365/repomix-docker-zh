@@ -29,7 +29,10 @@ body:
       description: "Where did you encounter this issue?"
       options:
         - Repomix CLI
-        - repomix.com
+        - Local Web UI
+        - Docker local deployment
+        - Browser extension
+        - Upstream repomix.com
 
   - type: input
     id: repomix_version

@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { ApiError, browseLocalPathDirectories } from '../../../website/client/components/api/client';
+import { ApiError, browseLocalPathDirectories } from '../../../website/client/components/api/client.js';
 
 describe('browseLocalPathDirectories', () => {
   afterEach(() => {

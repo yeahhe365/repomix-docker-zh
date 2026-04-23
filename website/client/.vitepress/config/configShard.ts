@@ -2,10 +2,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { type ManifestOptions, VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vitepress';
 import llmstxt from 'vitepress-plugin-llms';
-import {
-  FORK_REPOSITORY_URL,
-  NPM_PACKAGE_URL,
-} from '../../shared/projectLinks';
+import { FORK_REPOSITORY_URL, NPM_PACKAGE_URL } from '../../shared/projectLinks';
 import { configDeSearch } from './configDe';
 import { configEsSearch } from './configEs';
 import { configHiSearch } from './configHi';
