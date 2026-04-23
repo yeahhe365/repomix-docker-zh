@@ -143,10 +143,17 @@ jobs:
         with:
           name: test-coverage
           path: coverage/
-      - uses: codecov/codecov-action@75cd11691c0faa626561e295848008c8a7dddffe # v5.5.4
+      - name: Upload coverage to Codecov
+        if: ${{ env.CODECOV_TOKEN != '' }}
+        uses: codecov/codecov-action@75cd11691c0faa626561e295848008c8a7dddffe # v5.5.4
         with:
           fail_ci_if_error: true
           directory: ./coverage
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Skip Codecov upload when token is unavailable
+        if: ${{ env.CODECOV_TOKEN == '' }}
+        run: echo "Skipping Codecov upload because CODECOV_TOKEN is not configured."
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 

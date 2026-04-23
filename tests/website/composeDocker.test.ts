@@ -5,6 +5,8 @@ import { describe, expect, it } from 'vitest';
 const composePath = path.resolve(import.meta.dirname, '../../website/compose.docker.yml');
 
 describe('compose.docker.yml', () => {
+  const serverRestartPattern = /server:\r?\n(?:.*\r?\n)*?\s+restart:\s+unless-stopped/;
+
   it('uses the lightweight prebuilt client image for local Docker deployment', () => {
     const compose = readFileSync(composePath, 'utf8');
 
@@ -15,7 +17,13 @@ describe('compose.docker.yml', () => {
   it('restarts the local API container automatically after failures', () => {
     const compose = readFileSync(composePath, 'utf8');
 
-    expect(compose).toMatch(/server:\n(?:.*\n)*?\s+restart:\s+unless-stopped/);
+    expect(compose).toMatch(serverRestartPattern);
+  });
+
+  it('detects the restart policy even when the compose file uses CRLF newlines', () => {
+    const compose = readFileSync(composePath, 'utf8').replaceAll('\n', '\r\n');
+
+    expect(compose).toMatch(serverRestartPattern);
   });
 
   it('binds local deployment ports to localhost only', () => {
